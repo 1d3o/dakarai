@@ -48,7 +48,8 @@ gem 'sqlite3'
 # gem 'sidekiq'
 
 # Add Ideo SRL company helpers.
-gem 'ideo_rails', path: '../' # TODO: Update with github url
+# Doc: https://github.com/ideonetwork/ideo-rails
+gem 'ideo_rails', git: 'https://github.com/ideonetwork/ideo-rails'
 
 # Enforce system architecture with events.
 # Doc: https://github.com/ideonetwork/ruby-evnt
