@@ -1,0 +1,25 @@
+<%
+  row = cell(:elements, :row).new
+  form = cell(:inputs, :form).new(url: url, method: method)
+%>
+
+<%=raw form.open %>
+
+  <%=raw row.open %>
+
+    <%=raw cell(:inputs, :text).new(name: 'data[name]', label: 'Name',
+    required: true, class: 'md-12', value: @data.name) %>
+
+  <%=raw row.close %>
+
+  <div class="text-right">
+
+    <%=raw cell(:elements, :button).new(type: 'link', label: 'Cancel',
+    style: 'danger', icon: 'ban', url: lato_datas_path) %>
+
+    <%=raw cell(:elements, :button).new(type: 'submit', label: 'Save',
+    style: 'success', icon: 'check') %>
+
+  </div>
+
+<%=raw form.close %>

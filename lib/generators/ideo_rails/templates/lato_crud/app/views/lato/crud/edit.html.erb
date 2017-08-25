@@ -1,0 +1,18 @@
+<%
+  row = cell(:elements, :row).new
+  block = cell(:elements, :block).new(class: 'xs-12 sm-12 md-12')
+%>
+
+<!-- MAIN CONTAINER -->
+<%=raw row.open %>
+
+  <%=raw block.open %>
+
+    <%=raw cell(:elements, :title).new(label: 'Edit data', size: 2) %>
+
+    <%= render 'lato/crud/shared/form', url: lato_data_path(@data.id), method: :put %>
+
+  <%=raw block.close %>
+
+<%=raw row.close %>
+<!-- / MAIN CONTAINER -->
