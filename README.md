@@ -12,12 +12,28 @@ To initialize your project with initial files run:
 rails generate ideo_rails:initializer
 ```
 
-### Lato crud
+### Lato
 
-Depend on: lato_core
-
-To create a simple CRUD for Lato run:
+#### Crud views
 
 ```console
-rails generate ideo_rails:lato_crud
+rails generate ideo_rails:lato:crud_views ModelName
+```
+
+#### Crud controller
+
+```console
+rails generate ideo_rails:lato:crud_controller ModelName
+```
+
+#### Crud
+
+```console
+rails generate ideo_rails:lato:crud ModelName
+```
+
+#### Scaffold
+
+```console
+rails generate ideo_rails:lato:scaffold ModelName
 ```

@@ -1,0 +1,24 @@
+<%%
+  # initialize row
+  row = cell(:elements, :row).new
+
+  # initialize block
+  block = cell(:elements, :block).new(class: 'xs-12 sm-12 md-12')
+
+  # initialize title
+  title = cell(:elements, :title).new(label: 'Edit <%= @singular_name.humanize %>', size: 2)
+%>
+
+<!-- MAIN CONTAINER -->
+<%%=raw row.open %>
+
+  <%%=raw block.open %>
+
+    <%%=raw title %>
+
+    <%%= render 'lato/<%= @plural_name %>/shared/form', url: lato_<%= @singular_name %>_path(@<%= @singular_name %>.id), method: :post %>
+
+  <%%=raw block.close %>
+
+<%%=raw row.close %>
+<!-- / MAIN CONTAINER -->

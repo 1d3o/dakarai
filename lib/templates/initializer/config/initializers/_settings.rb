@@ -2,12 +2,6 @@
 
 # Initializer for system settings file.
 
-# Require custom files:
-
-Dir[File.join(Rails.root, 'lib', '**/*.rb')].each do |f|
-  require f
-end
-
 # Update default classes settings:
 
 # language
@@ -26,4 +20,4 @@ VALID_IMAGE = %r{/\Aimage\/.*\z/}
 
 # Set global settings:
 
-SETTINGS = {}.freeze
+CUSTOM_SETTINGS = {}.freeze
