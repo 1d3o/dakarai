@@ -13,7 +13,7 @@ module Lato
       @<%= @plural_name %> = <%= @model_name %>.all
       @widget_index_<%= @plural_name %> = core__widgets_index(
         @<%= @plural_name %>,
-        search: 'search_key',
+        search: 'name',
         pagination: 10
       )
     end
