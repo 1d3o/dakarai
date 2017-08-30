@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'ideo_rails'
   spec.version       = IdeoRails::VERSION
   spec.authors       = ['Ideonetwork']
-  spec.email         = ['info@ideonetwork.it']
+  spec.email         = ['dev@ideonetwork.it']
   spec.homepage      = 'http://ideonetwork.it/'
   spec.summary       = 'Ideo SRL Rails project initializer'
   spec.description   = 'Ideo SRL Rails project initializer'
