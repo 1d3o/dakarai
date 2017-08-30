@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails/generators/base'
+require 'ideo_rails/constants'
 
 module IdeoRails
   # InitializerGenerator.
@@ -43,12 +44,15 @@ module IdeoRails
 
     def manage_environments
       # copy config environments
-      copy_file('config/environments/test.rb',
-                'config/environments/test.rb')
-      copy_file('config/environments/development.rb',
-                'config/environments/development.rb')
-      copy_file('config/environments/production.rb',
-                'config/environments/production.rb')
+      @environment_settings = DEFAULT_ENVIRONMENT_TEST_SETTINGS
+      template('config/environments/environment.rb',
+               'config/environments/test.rb')
+      @environment_settings = DEFAULT_ENVIRONMENT_DEVELOPMENT_SETTINGS
+      template('config/environments/environment.rb',
+               'config/environments/development.rb')
+      @environment_settings = DEFAULT_ENVIRONMENT_PRODUCTION_SETTINGS
+      template('config/environments/environment.rb',
+               'config/environments/production.rb')
     end
 
     def manage_initializer
