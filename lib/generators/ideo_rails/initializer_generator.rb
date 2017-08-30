@@ -21,6 +21,8 @@ module IdeoRails
       manage_initializer
       manage_lib
       manage_changelog
+      manage_views
+      manage_assets
 
       update_application
     end
@@ -69,6 +71,18 @@ module IdeoRails
       # copy changelog
       copy_file('changelog/version_1.0',
                 'changelog/version_1.0')
+    end
+
+    def manage_views
+      # copy layout
+      template('app/views/layouts/application.html.erb',
+               'app/views/layouts/application.html.erb')
+    end
+
+    def manage_assets
+      # copy application js
+      copy_file('app/assets/javascripts/application.js',
+                'app/assets/javascripts/application.js')
     end
 
     def update_application
