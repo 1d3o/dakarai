@@ -5,3 +5,6 @@ AllCops:
 
 Layout/EmptyLinesAroundClassBody:
   EnforcedStyle: empty_lines
+
+Layout/EmptyLinesAroundModuleBody:
+  EnforcedStyle: empty_lines
