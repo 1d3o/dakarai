@@ -49,6 +49,12 @@ Rails.application.configure do
   # Update schema after migrations. [true, false]
   config.active_record.dump_schema_after_migration = <%= @environment_settings[:active_record][:dump_schema_after_migration] %>
 
+  # ActiveJob settings:
+  ############################################################################
+
+  # Set queue adapter to run jobs:
+  config.active_job.queue_adapter = <%= @environment_settings[:active_job][:queue_adapter] %>
+
   # ActionDispatch settings:
   ############################################################################
   

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# This module contains functions used to work with models.
+# ModelsHelpers.
 module ModelsHelpers
 
   # This function initialize a list of observers for a model.

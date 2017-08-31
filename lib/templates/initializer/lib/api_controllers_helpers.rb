@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-# This module contains functions used to help the development of API.
-module ApisHelpers
+# ApiControllersHelpers.
+module ApiControllersHelpers
 
   # This function render a normal success response with a custom payload.
   def render_request_success(payload)
@@ -17,12 +17,6 @@ module ApisHelpers
     render json: response
   end
 
-  # This function render an error message with the errors contained
-  # on an entity.
-  def render_entity_error(entity)
-    render_request_fail(entity.errors.full_messages.to_sentence)
-  end
-
   # This function render an error for a bad request with an error message.
   def render_bad_request_error(error)
     render json: { result: false, error_message: error }, status: 400
@@ -32,6 +26,13 @@ module ApisHelpers
   # an error message.
   def render_unauthorized_request_error(error)
     render json: { result: false, error_message: error }, status: 401
+  end
+
+  # This function render an error object as an api response with
+  # the error informations.
+  def render_server_error(error, error_object)
+    render json: { result: false, error_message: error, info: error_object.to_s },
+           status: 500
   end
 
 end

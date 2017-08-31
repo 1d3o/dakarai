@@ -8,9 +8,9 @@ module IdeoRails
   # InitializerGenerator.
   class InitializerGenerator < Rails::Generators::Base
 
-    source_root File.expand_path('../../../templates/initializer', __FILE__)
+    include IdeoRails::Helpers
 
-    argument :application_name, type: :string, default: 'MyApplication'
+    source_root File.expand_path('../../../templates/initializer', __FILE__)
 
     class_option :dev, type: :boolean, default: false
 
@@ -25,6 +25,7 @@ module IdeoRails
       manage_changelog
       manage_views
       manage_assets
+      manage_controllers
 
       update_application
     end
@@ -34,6 +35,7 @@ module IdeoRails
     def manage_gemfile
       # copy Gemfile
       copy_file('Gemfile', 'Gemfile')
+
       # add local gem if env is development
       gem 'ideo_rails', path: '../' if options[:dev]
     end
@@ -44,13 +46,17 @@ module IdeoRails
     end
 
     def manage_environments
-      # copy config environments
+      # copy environment test
       @environment_settings = DEFAULT_ENVIRONMENT_TEST_SETTINGS
       template('config/environments/environment.rb',
                'config/environments/test.rb')
+
+      # copy environment development
       @environment_settings = DEFAULT_ENVIRONMENT_DEVELOPMENT_SETTINGS
       template('config/environments/environment.rb',
                'config/environments/development.rb')
+
+      # copy environment production
       @environment_settings = DEFAULT_ENVIRONMENT_PRODUCTION_SETTINGS
       template('config/environments/environment.rb',
                'config/environments/production.rb')
@@ -88,6 +94,12 @@ module IdeoRails
       # copy application js
       copy_file('app/assets/javascripts/application.js',
                 'app/assets/javascripts/application.js')
+    end
+
+    def manage_controllers
+      # copy api application controller
+      copy_file('app/controllers/api/application_controller.rb',
+                'app/controllers/api/application_controller.rb')
     end
 
     def update_application

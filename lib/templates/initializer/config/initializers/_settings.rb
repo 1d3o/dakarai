@@ -12,11 +12,13 @@ I18n.default_locale = :en
 Date::DATE_FORMATS[:default] = '%d/%m/%Y'
 Time::DATE_FORMATS[:default] = '%d/%m/%Y %H:%M'
 
-# Set global helpers values:
+# Set global regex values:
 
 VALID_EMAIL = %r{/\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i}
 
 VALID_IMAGE = %r{/\Aimage\/.*\z/}
+
+VALID_PASSWORD = %r{/^(?=.*[a-zA-Z])(?=.*[0-9]).{6,}$/}
 
 # Set global settings:
 
