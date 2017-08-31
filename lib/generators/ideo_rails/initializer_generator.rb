@@ -4,6 +4,7 @@ require 'rails/generators/base'
 require 'ideo_rails/constants'
 
 module IdeoRails
+
   # InitializerGenerator.
   class InitializerGenerator < Rails::Generators::Base
 
@@ -95,4 +96,5 @@ module IdeoRails
     end
 
   end
+
 end

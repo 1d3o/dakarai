@@ -3,7 +3,9 @@
 require 'rails/generators/base'
 
 module IdeoRails
+
   module Evnt
+
     # InitializerGenerator.
     class InitializerGenerator < Rails::Generators::Base
 
@@ -48,5 +50,7 @@ module IdeoRails
       end
 
     end
+
   end
+
 end
