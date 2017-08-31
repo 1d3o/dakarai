@@ -11,7 +11,7 @@ module IdeoRails
 
       desc 'This function initialize your Rails project to support Evnt.'
       def create_initializer
-        manage_actions
+        manage_commands
         manage_events
         manage_handlers
 
@@ -20,10 +20,10 @@ module IdeoRails
 
       private
 
-      def manage_actions
-        # copy actions
-        copy_file('actions/application_action.rb',
-                  'app/actions/application_action.rb')
+      def manage_commands
+        # copy commands
+        copy_file('commands/application_command.rb',
+                  'app/commands/application_command.rb')
       end
 
       def manage_events
@@ -40,7 +40,7 @@ module IdeoRails
 
       def update_application
         # autoload actions directory
-        application "config.autoload_paths += %W[\#{Rails.root}/app/actions]"
+        application "config.autoload_paths += %W[\#{Rails.root}/app/commands]"
         # autoload events directory
         application "config.autoload_paths += %W[\#{Rails.root}/app/events]"
         # autoload handlers directory
