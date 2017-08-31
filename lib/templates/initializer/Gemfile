@@ -39,9 +39,6 @@ gem 'sqlite3'
 # Upload files and media.
 # gem 'paperclip'
 
-# Run jobs on different processes.
-# gem 'sidekiq'
-
 # Add Ideo SRL company helpers.
 # gem 'ideo_rails', git: 'https://github.com/ideonetwork/ideo-rails'
 

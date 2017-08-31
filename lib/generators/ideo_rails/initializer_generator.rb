@@ -1,13 +1,15 @@
 # frozen_string_literal: true
 
 require 'rails/generators/base'
-require 'ideo_rails/constants'
+require 'ideo_rails/environments'
+require 'ideo_rails/helpers'
 
 module IdeoRails
 
   # InitializerGenerator.
   class InitializerGenerator < Rails::Generators::Base
 
+    include IdeoRails::Environments
     include IdeoRails::Helpers
 
     source_root File.expand_path('../../../templates/initializer', __FILE__)
@@ -17,16 +19,18 @@ module IdeoRails
     desc 'This function initialize your Rails project with initial
     required files.'
     def create_initializer
+      # copy templates
       manage_gemfile
       manage_rubocop
       manage_environments
       manage_initializer
-      manage_lib
+      manage_libbraries
       manage_changelog
       manage_views
       manage_assets
       manage_controllers
 
+      # update application codes
       update_application
     end
 
@@ -68,7 +72,7 @@ module IdeoRails
                 'config/initializers/_settings.rb')
     end
 
-    def manage_lib
+    def manage_libbraries
       # copy lib helpers
       copy_file('lib/apis_helpers.rb',
                 'lib/apis_helpers.rb')

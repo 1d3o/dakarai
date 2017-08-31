@@ -2,8 +2,8 @@
 
 module IdeoRails
 
-  # Environements.
-  module Environements
+  # Environments.
+  module Environments
 
     DEFAULT_ENVIRONMENT_TEST_SETTINGS = {
       log_level: ':debug',

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require 'rails/generators/base'
+require 'ideo_rails/environments'
+require 'ideo_rails/helpers'
 
 module IdeoRails
 
@@ -29,19 +31,19 @@ module IdeoRails
 
     def manage_commands
       # copy commands
-      copy_file('commands/application_command.rb',
+      copy_file('app/commands/application_command.rb',
                 'app/commands/application_command.rb')
     end
 
     def manage_events
       # copy events
-      copy_file('events/application_event.rb',
+      copy_file('app/events/application_event.rb',
                 'app/events/application_event.rb')
     end
 
     def manage_handlers
       # copy handlers
-      copy_file('handlers/application_handler.rb',
+      copy_file('app/handlers/application_handler.rb',
                 'app/handlers/application_handler.rb')
     end
 

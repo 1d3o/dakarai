@@ -7,6 +7,7 @@ module Api
 
     include AuthenticationControllersHelpers
 
+    # This action permit users to do the signup.
     def signup
       command = generate_signup_command
 
@@ -22,8 +23,20 @@ module Api
       render_server_error('Internal server error..', info: e.to_s)
     end
 
+    # This action permit users to do the login.
     def login
+      command = generate_login_command
 
+      unless command.completed?
+        render_request_fail(command.error_messages.to_sentence)
+        return
+      end
+
+      render_request_success(
+        token: generate_authentication_token(command.user.uuid)
+      )
+    rescue => e
+      render_server_error('Internal server error..', info: e.to_s)
     end
 
     private
@@ -31,6 +44,11 @@ module Api
     def generate_signup_command
       command_params = params.permit(:name, :surname, :email,
                                      :password, :password_confirmation)
+      Command.new(command_params)
+    end
+
+    def generate_login_command
+      command_params = params.permit(:email, :password)
       Command.new(command_params)
     end
 
