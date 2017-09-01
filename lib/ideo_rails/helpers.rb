@@ -15,6 +15,10 @@ module IdeoRails
       }
     end
 
+    def print_important(message)
+      puts "\e[31m --> IMPORTANT: #{message} \e[0m\n"
+    end
+
   end
 
 end

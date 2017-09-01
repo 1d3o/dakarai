@@ -31,8 +31,11 @@ module ApiControllersHelpers
   # This function render an error object as an api response with
   # the error informations.
   def render_server_error(error, error_object)
-    render json: { result: false, error_message: error, info: error_object.to_s },
-           status: 500
+    render json: {
+      result: false,
+      error_message: error,
+      error_info: error_object.to_s
+    }, status: 500
   end
 
 end

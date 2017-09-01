@@ -20,6 +20,9 @@ module IdeoRails
     def create_authentication
       @names = model_to_names(model_name)
 
+      # write messages to user
+      write_messages
+
       # copy teplates
       manage_commands
       manage_events
@@ -36,6 +39,10 @@ module IdeoRails
     end
 
     private
+
+    def write_messages
+      print_important "Remember to active the 'bcrypt' and 'jwt' gems on your Gemfile"
+    end
 
     def manage_commands
       # copy commands
@@ -86,7 +93,7 @@ module IdeoRails
       generate 'model', "#{@names[:model]} uuid:string name:string surname:string email:string"
 
       # generate entity passwords model
-      generate 'model', "#{@names[:model]}Password uuid:string password_digest:string"
+      generate 'model', "#{@names[:model]}Password user_uuid:string password_digest:string"
     end
 
   end

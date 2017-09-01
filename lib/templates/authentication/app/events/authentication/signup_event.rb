@@ -13,7 +13,7 @@ module Authentication
       UserHandler.new
     ]
 
-    to_save_event do
+    to_write_event do
       Event.create(name: name, payload: payload)
     end
 

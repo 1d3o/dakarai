@@ -15,6 +15,9 @@ module IdeoRails
 
     desc 'This function initialize your Rails project to support Evnt.'
     def create_evnt_initializer
+      # write messages to user
+      write_messages
+
       # copy templates
       manage_commands
       manage_events
@@ -28,6 +31,10 @@ module IdeoRails
     end
 
     private
+
+    def write_messages
+      print_important "Remember to active the 'evnt' gem on your Gemfile"
+    end
 
     def manage_commands
       # copy commands

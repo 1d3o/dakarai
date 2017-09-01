@@ -18,7 +18,7 @@ VALID_EMAIL = %r{/\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i}
 
 VALID_IMAGE = %r{/\Aimage\/.*\z/}
 
-VALID_PASSWORD = %r{/^(?=.*[a-zA-Z])(?=.*[0-9]).{6,}$/}
+VALID_PASSWORD = /^(?=.*[a-zA-Z])(?=.*[0-9]).{6,20}$/
 
 # Set global settings:
 
