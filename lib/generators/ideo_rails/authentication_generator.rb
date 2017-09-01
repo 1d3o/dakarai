@@ -26,6 +26,7 @@ module IdeoRails
       manage_handlers
       manage_controllers
       manage_libraries
+      manage_test
 
       # update application codes
       update_routes
@@ -66,6 +67,12 @@ module IdeoRails
       # copy libraries
       copy_file('lib/authentication_controllers_helpers.rb',
                 'lib/authentication_controllers_helpers.rb')
+    end
+
+    def manage_test
+      # copy controllers tests
+      copy_file('test/controllers/api/authentication_controller_test.rb',
+                'test/controllers/api/authentication_controller_test.rb')
     end
 
     def update_routes

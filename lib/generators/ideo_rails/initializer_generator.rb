@@ -24,11 +24,12 @@ module IdeoRails
       manage_rubocop
       manage_environments
       manage_initializer
-      manage_libbraries
+      manage_libraries
       manage_changelog
       manage_views
       manage_assets
       manage_controllers
+      manage_test
 
       # update application codes
       update_application
@@ -72,7 +73,7 @@ module IdeoRails
                 'config/initializers/_settings.rb')
     end
 
-    def manage_libbraries
+    def manage_libraries
       # copy lib helpers
       copy_file('lib/apis_helpers.rb',
                 'lib/apis_helpers.rb')
@@ -104,6 +105,11 @@ module IdeoRails
       # copy api application controller
       copy_file('app/controllers/api/application_controller.rb',
                 'app/controllers/api/application_controller.rb')
+    end
+
+    def manage_test
+      # copy tests helpers
+      copy_file('test/test_helper.rb', 'test/test_helper.rb')
     end
 
     def update_application
