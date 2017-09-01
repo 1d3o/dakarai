@@ -24,7 +24,7 @@ module Authentication
       throw 'Password is not enought secure' unless psw_secure_check
 
       # check email is uniq
-      email_check = !User.find_by(email: params[:email].downcase)
+      email_check = !Queries::User.find_by(email: params[:email].downcase)
       throw 'Email is already used' unless email_check
     end
 

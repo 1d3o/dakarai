@@ -14,6 +14,8 @@ module IdeoRails
 
     source_root File.expand_path('../../../templates/initializer', __FILE__)
 
+    argument :application_name, type: :string, default: 'MyApplication'
+
     class_option :dev, type: :boolean, default: false
 
     desc 'This function initialize your Rails project with initial
@@ -75,8 +77,8 @@ module IdeoRails
 
     def manage_libraries
       # copy lib helpers
-      copy_file('lib/apis_helpers.rb',
-                'lib/apis_helpers.rb')
+      copy_file('lib/api_controllers_helpers.rb',
+                'lib/api_controllers_helpers.rb')
       copy_file('lib/models_helpers.rb',
                 'lib/models_helpers.rb')
       copy_file('lib/tests_helpers.rb',

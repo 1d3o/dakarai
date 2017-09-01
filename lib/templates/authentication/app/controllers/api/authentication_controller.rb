@@ -44,12 +44,12 @@ module Api
     def generate_signup_command
       command_params = params.permit(:name, :surname, :email,
                                      :password, :password_confirmation)
-      Command.new(command_params)
+      Authentication::SignupCommand.new(command_params)
     end
 
     def generate_login_command
       command_params = params.permit(:email, :password)
-      Command.new(command_params)
+      Authentication::LoginCommand.new(command_params)
     end
 
   end
