@@ -21,6 +21,9 @@ module IdeoRails
     desc 'This function initialize your Rails project with initial
     required files.'
     def create_initializer
+      # write messages to user
+      write_messages
+
       # copy templates
       manage_gemfile
       manage_rubocop
@@ -38,6 +41,14 @@ module IdeoRails
     end
 
     private
+
+    def write_messages
+      print_presentation 'Initializer generator', "
+      Welcome to the Initializer generator.
+      This generator will create all you need to start to develop
+      your Ruby on Rails project.
+      "
+    end
 
     def manage_gemfile
       # copy Gemfile

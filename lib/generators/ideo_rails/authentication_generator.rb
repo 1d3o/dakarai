@@ -41,7 +41,12 @@ module IdeoRails
     private
 
     def write_messages
-      print_important "Remember to active the 'bcrypt' and 'jwt' gems on your Gemfile"
+      print_presentation 'Authentication generator', "
+      Welcome to the authentication generator.
+      This generator will create all you need to manage user and their
+      authentication with the system.
+      Remember to activate the gems 'bcrypt' and 'jwt' on your Gemfile.
+      "
     end
 
     def manage_commands

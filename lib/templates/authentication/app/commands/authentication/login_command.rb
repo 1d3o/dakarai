@@ -19,7 +19,7 @@ module Authentication
       throw 'There are not user with the selected email' && break unless @user
 
       # check user password presence
-      user_password = Queries::UserPassword.find_by(uuid: @user.uuid)
+      user_password = Queries::UserPassword.find_by(user_uuid: @user.uuid)
       throw 'The user password is not registered on the system' && break unless user_password
 
       # check password is valid

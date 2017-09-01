@@ -15,8 +15,14 @@ module IdeoRails
       }
     end
 
-    def print_important(message)
-      puts "\e[31m --> IMPORTANT: #{message} \e[0m\n"
+    def print_presentation(title, message)
+      puts "\e[36m #{'*' * 25}*#{'*' * title.length}*#{'*' * 25} \e[0m\n"
+      puts "\e[36m #{'*' * 25} #{title} #{'*' * 25} \e[0m\n"
+      puts "\e[36m #{'*' * 25}*#{'*' * title.length}*#{'*' * 25} \e[0m\n"
+      puts ''
+      puts "\e[36m #{message} \e[0m\n"
+      puts ''
+      puts "\e[36m #{'*' * 25}*#{'*' * title.length}*#{'*' * 25} \e[0m\n"
     end
 
   end

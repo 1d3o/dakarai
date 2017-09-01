@@ -33,7 +33,12 @@ module IdeoRails
     private
 
     def write_messages
-      print_important "Remember to active the 'evnt' gem on your Gemfile"
+      print_presentation 'Evnt initializer generator', "
+      Welcome to the Evnt initializer generator.
+      This generator will create all you need to structure your
+      code with the Evnt gem.
+      Remember to activate the gems 'evnt' on your Gemfile.
+      "
     end
 
     def manage_commands

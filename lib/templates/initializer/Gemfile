@@ -17,7 +17,6 @@ gem 'rails', '~> 5.1.3'
 
 # Styles gems.
 gem 'jbuilder', '>= 2.5'
-gem 'jquery-rails', '>= 2.1'
 gem 'sass-rails', '>= 5.0'
 gem 'uglifier', '>= 1.3.0'
 
@@ -54,9 +53,9 @@ gem 'sqlite3'
 # gem 'lato_blog', git: 'https://github.com/ideonetwork/lato-blog'
 
 # Test gems
-group :test do
-  # testing
-  gem 'rspec'
+group :test, :development do
+  # ger random data for seeds
+  gem 'faker'
 end
 
 # Development gems
@@ -67,8 +66,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # get pretty errors
   gem 'better_errors'
-  # ger random data for seeds
-  gem 'faker'
   # work better with console
   gem 'colorize'
   gem 'table_print'
