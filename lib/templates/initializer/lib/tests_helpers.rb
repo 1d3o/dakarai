@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 # TestsHelpers.
+# Updated by Gregorio Galante on 02-09-2017.
+
+# TestsHelpers.
 module TestsHelpers
 
   # This function should be used to send a request on an API.

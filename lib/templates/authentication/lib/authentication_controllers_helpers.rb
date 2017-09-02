@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 # AuthenticationControllersHelpers.
+# Updated by Gregorio Galante on 02-09-2017.
+
+# AuthenticationControllersHelpers.
 module AuthenticationControllersHelpers
 
   # This function generates and returns a secure authentication token

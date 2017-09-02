@@ -14,7 +14,7 @@ Time::DATE_FORMATS[:default] = '%d/%m/%Y %H:%M'
 
 # Set global regex values:
 
-VALID_EMAIL = %r{/\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i}
+VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 
 VALID_IMAGE = %r{/\Aimage\/.*\z/}
 

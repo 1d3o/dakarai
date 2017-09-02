@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 # UserHandler.
+# Updated by Gregorio Galante on 02-09-2017.
+
+# UserHandler.
 class UserHandler < ApplicationHandler
 
   on :authentication_signup do

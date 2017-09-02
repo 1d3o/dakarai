@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# Authentication::SignupCommand.
+# Updated by Gregorio Galante on 02-09-2017.
+
 module Authentication
 
   # SignupCommand.
@@ -19,6 +22,10 @@ module Authentication
       psw_equal_check = params[:password] == params[:password_confirmation]
       throw 'Password and repeated password are not the same' unless psw_equal_check
 
+      # check email validity
+      email_check = params[:email].match?(VALID_EMAIL)
+      throw 'Email has not a correct format' unless email_check
+
       # check password security
       psw_secure_check = params[:password].match?(VALID_PASSWORD)
       throw 'Password is not enought secure' unless psw_secure_check
@@ -33,13 +40,12 @@ module Authentication
       uuid = SecureRandom.uuid
 
       # generate a secure password digest
-      # NOTE: changing password cost will be more slow but more secure
-      password_digest = BCrypt::Password.create(params[:password], cost: 10)
+      password_digest = BCrypt::Password.create(params[:password])
 
       # initialize event
       Authentication::SignupEvent.new(
         uuid: uuid, name: params[:name], surname: params[:surname],
-        email: params[:email], password_digest: password_digest
+        email: params[:email].downcase, password_digest: password_digest
       )
     end
 

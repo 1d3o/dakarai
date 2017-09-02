@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# Authentication::SignupCommandTest.
+# Updated by Gregorio Galante on 02-09-2017.
+
 require 'test_helper'
 
 module Authentication
@@ -14,59 +17,128 @@ module Authentication
     def test_name_exist
       # negative example
       command = command_with_custom(:name, '')
-      assert_equal false, command.completed?
+      assert !command.completed?
     end
 
     def test_surname_exist
       # negative example
       command = command_with_custom(:surname, '')
-      assert_equal false, command.completed?
+      assert !command.completed?
     end
 
     def test_email_exist
       # negative example
       command = command_with_custom(:email, '')
-      assert_equal false, command.completed?
+      assert !command.completed?
     end
 
     def test_password_exist
       # negative example
       command = command_with_custom(:password, '')
-      assert_equal false, command.completed?
+      assert !command.completed?
     end
 
-    # The Signup password should have between six and twenty characters and
+    # The email should have a correct format.
+    ############################################################################
+
+    def test_email_format
+      # negative examples
+      command = command_with_custom(:email, 'example')
+      assert !command.completed?
+      command = command_with_custom(:email, 'example@mail')
+      assert !command.completed?
+      command = command_with_custom(:email, '@mail.it')
+      assert !command.completed?
+      command = command_with_custom(:email, 'mail.it')
+      assert !command.completed?
+
+      # positive example
+      command = command_with_custom(:email, 'test_email_format@mail.it')
+      assert command.completed?
+    end
+
+    # The password should have between six and twenty characters and
     # should contain one or more numbers.
     ############################################################################
 
     def test_password_min_length
       # negative example
       command = command_with_password('Pass1')
-      assert_equal false, command.completed?
+      assert !command.completed?
 
       # positive example
       command = command_with_password('Passw1')
-      assert_equal true, command.completed?
+      assert command.completed?
     end
 
     def test_password_max_length
       # negative example
       command = command_with_password('Pa1' * 7)
-      assert_equal false, command.completed?
+      assert !command.completed?
 
       # positive example
       command = command_with_password(('Pa1' * 7)[0...-1])
-      assert_equal true, command.completed?
+      assert command.completed?
     end
 
     def test_password_number_presence
       # negative example
       command = command_with_password('Password')
-      assert_equal false, command.completed?
+      assert !command.completed?
 
       # positive example
       command = command_with_password('Password1')
-      assert_equal true, command.completed?
+      assert command.completed?
+    end
+
+    # The email should not be used by other users.
+    ############################################################################
+
+    def test_email_uniqueness
+      command1 = command_with_custom
+      assert command1.completed?
+
+      command2 = command_with_custom(:email, command1.params[:email])
+      assert !command2.completed?
+    end
+
+    # The email should be saved with a downcase format.
+    ############################################################################
+
+    def test_email_dowcase
+      email = 'test_email_dowcase@MAIL.COM'
+      command = command_with_custom(:email, email)
+      assert command.completed?
+
+      # check if user is saved with downcase email
+      user = Queries::User.find_by(email: email)
+      assert user.nil?
+      user = Queries::User.find_by(email: email.downcase)
+      assert !user.nil?
+    end
+
+    # An event should be saved with the user informations.
+    # The user informations are:
+    # - name
+    # - surname
+    # - email
+    # - password_digest (the crypted user password)
+    ############################################################################
+
+    def test_event_saved
+      command = command_with_custom
+      assert command.completed?
+
+      # check if event is saved on the database
+      event = Event.all.last
+      assert !event.nil?
+      assert_equal 'authentication_signup', event.name
+
+      # check event payload (accept eval usage on a test :D)
+      payload = event.payload.is_a?(String) ? eval(event.payload) : event.payload
+      assert command.params[:name], payload[:name]
+      assert command.params[:surname], payload[:surname]
+      assert command.params[:email], payload[:email]
     end
 
     private
@@ -74,7 +146,7 @@ module Authentication
     # Helpers:
     ############################################################################
 
-    def command_with_custom(key, value)
+    def command_with_custom(key = nil, value = nil)
       Authentication::SignupCommand.new(
         name: key == :name ? value : Faker::Name.first_name,
         surname: key == :surname ? value : Faker::Name.last_name,
