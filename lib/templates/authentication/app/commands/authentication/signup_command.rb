@@ -8,7 +8,7 @@ module Authentication
     to_validate_params do
       # check required params presence
       throw 'Name not present' if params[:name].blank?
-      throw 'Surname not present' if params[:name].blank?
+      throw 'Surname not present' if params[:surname].blank?
       throw 'Email not present' if params[:email].blank?
       throw 'Password not present' if params[:password].blank?
       throw 'Repeated password not present' if params[:password_confirmation].blank?

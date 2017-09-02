@@ -82,9 +82,13 @@ module IdeoRails
     end
 
     def manage_test
-      # copy controllers tests
+      # copy integration tests
       copy_file('test/integration/api/authentication_test.rb',
                 'test/integration/api/authentication_test.rb')
+
+      # copy commands tests
+      copy_file('test/commands/authentication/signup_command_test.rb',
+                'test/commands/authentication/signup_command_test.rb')
     end
 
     def update_routes
