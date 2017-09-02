@@ -24,7 +24,7 @@ module Authentication
 
       # check password is valid
       clear_user_password = BCrypt::Password.new(user_password.password_digest)
-      throw 'The password is not correct' unless params[:password] == clear_user_password
+      throw 'The password is not correct' unless clear_user_password == params[:password]
     end
 
     to_initialize_events {} # avoid event save
