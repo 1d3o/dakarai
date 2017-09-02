@@ -15,20 +15,24 @@ module Authentication
       # negative example
       command = command_with_custom(:name, '')
       assert_equal false, command.completed?
-
-      # positive example
-      command = command_with_custom(:name, 'Pippo')
-      assert_equal true, command.completed?
     end
 
     def test_surname_exist
       # negative example
       command = command_with_custom(:surname, '')
       assert_equal false, command.completed?
+    end
 
-      # positive example
-      command = command_with_custom(:surname, 'Baudo')
-      assert_equal true, command.completed?
+    def test_email_exist
+      # negative example
+      command = command_with_custom(:email, '')
+      assert_equal false, command.completed?
+    end
+
+    def test_password_exist
+      # negative example
+      command = command_with_custom(:password, '')
+      assert_equal false, command.completed?
     end
 
     # The Signup password should have between six and twenty characters and
