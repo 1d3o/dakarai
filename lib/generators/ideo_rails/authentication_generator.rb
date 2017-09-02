@@ -45,9 +45,11 @@ module IdeoRails
     def write_messages
       print_presentation 'Authentication generator', "
       Welcome to the authentication generator.
-      This generator will create all you need to manage user and their
+      This generator will create all you need to manage users and their
       authentication with the system.
       Remember to activate the gems 'bcrypt' and 'jwt' on your Gemfile.
+      You also need to have a VALID_EMAIL and a VALID_PASSWORD constants
+      with a regex value used to validate emails and passwords.
       "
     end
 

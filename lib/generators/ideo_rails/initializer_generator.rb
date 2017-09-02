@@ -47,6 +47,8 @@ module IdeoRails
       Welcome to the Initializer generator.
       This generator will create all you need to start to develop
       your Ruby on Rails project.
+      We need to override some default files, please say yes to
+      all override requests.
       "
     end
 
