@@ -83,7 +83,8 @@ module IdeoRails
 
     def manage_test
       # copy controllers tests
-      # TODO
+      copy_file('test/integration/api/authentication_test.rb',
+                'test/integration/api/authentication_test.rb')
     end
 
     def update_routes
