@@ -8,7 +8,7 @@ require 'test_helper'
 module Authentication
 
   # SignupCommandTest.
-  class SignupCommandTest < Minitest::Test
+  class SignupCommandTest < ActiveSupport::TestCase
 
     # The name, surname, email and password values should always exists and
     # should not be empty.
@@ -118,11 +118,7 @@ module Authentication
     end
 
     # An event should be saved with the user informations.
-    # The user informations are:
-    # - name
-    # - surname
-    # - email
-    # - password_digest (the crypted user password)
+    # The user informations are: name, surname, email, password_digest.
     ############################################################################
 
     def test_event_saved
@@ -139,6 +135,28 @@ module Authentication
       assert command.params[:name], payload[:name]
       assert command.params[:surname], payload[:surname]
       assert command.params[:email], payload[:email]
+    end
+
+    # The user table should be updated with the new user informations.
+    # The user password should contain the password informartions for
+    # the user.
+    ############################################################################
+
+    def test_user_table_update
+      command = command_with_custom
+      assert command.completed?
+
+      # check if user row is saved on database
+      user = Queries::User.all.last
+      assert !user.nil?
+      assert command.params[:name], user.name
+      assert command.params[:surname], user.surname
+      assert command.params[:email], user.email
+
+      # check if user password row is saved on database
+      user_password = Queries::UserPassword.find_by(user_uuid: user.uuid)
+      assert !user_password.nil?
+      assert !user_password.password_digest.nil?
     end
 
     private
