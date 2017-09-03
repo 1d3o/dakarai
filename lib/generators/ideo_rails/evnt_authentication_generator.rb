@@ -15,7 +15,7 @@ module IdeoRails
 
     source_root File.expand_path('../../../templates/evnt_authentication', __FILE__)
 
-    argument :model_name, type: :string, default: 'Queries::User'
+    class_option 'no-migrations', type: :boolean, default: false
 
     desc 'This function add an authentication system with Evnt on
     your project.'
@@ -37,7 +37,7 @@ module IdeoRails
       update_config_routes
 
       # create required models
-      run_models_generator
+      run_models_generator unless options['no-migrations']
     end
 
     private

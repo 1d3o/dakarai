@@ -13,6 +13,8 @@ module IdeoRails
 
     source_root File.expand_path('../../../templates/evnt_initializer', __FILE__)
 
+    class_option 'no-migrations', type: :boolean, default: false
+
     desc 'This function initialize your Rails project to support Evnt.'
     def create_evnt_initializer
       # write messages to user
@@ -27,7 +29,7 @@ module IdeoRails
       update_config_application
 
       # run other generators
-      run_model_generator
+      run_model_generator unless options['no-migrations']
     end
 
     private

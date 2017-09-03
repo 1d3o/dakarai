@@ -16,7 +16,7 @@ module IdeoRails
 
     argument :application_name, type: :string, default: 'MyApplication'
 
-    class_option :dev, type: :boolean, default: false
+    class_option 'dev', type: :boolean, default: false
 
     desc 'This function initialize your Rails project with initial
     required files.'
@@ -58,7 +58,7 @@ module IdeoRails
       copy_file('Gemfile', 'Gemfile')
 
       # add local gem if env is development
-      gem 'ideo_rails', path: '../' if options[:dev]
+      gem 'ideo_rails', path: '../' if options['dev']
     end
 
     def manage_rubocop
