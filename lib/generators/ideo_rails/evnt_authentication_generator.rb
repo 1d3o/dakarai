@@ -15,6 +15,9 @@ module IdeoRails
 
     source_root File.expand_path('../../../templates/evnt_authentication', __FILE__)
 
+    # TODO: Manage model name to permit dynamic models.
+    argument :model_name, type: :string, default: 'User'
+
     class_option 'no-migrations', type: :boolean, default: false
 
     desc 'This function add an authentication system with Evnt on
