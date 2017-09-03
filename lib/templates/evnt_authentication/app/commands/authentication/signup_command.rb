@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Authentication::SignupCommand.
-# Updated by Gregorio Galante on 02-09-2017.
+# Created by Ideo SRL on 02-09-2017.
 
 module Authentication
 
