@@ -19,12 +19,12 @@ module IdeoRails
       write_messages
 
       # copy templates
-      manage_commands
-      manage_events
-      manage_handlers
+      manage_app_commands
+      manage_app_events
+      manage_app_handlers
 
       # update application codes
-      update_application
+      update_config_application
 
       # run other generators
       run_model_generator
@@ -41,25 +41,25 @@ module IdeoRails
       "
     end
 
-    def manage_commands
+    def manage_app_commands
       # copy commands
       copy_file('app/commands/application_command.rb',
                 'app/commands/application_command.rb')
     end
 
-    def manage_events
+    def manage_app_events
       # copy events
       copy_file('app/events/application_event.rb',
                 'app/events/application_event.rb')
     end
 
-    def manage_handlers
+    def manage_app_handlers
       # copy handlers
       copy_file('app/handlers/application_handler.rb',
                 'app/handlers/application_handler.rb')
     end
 
-    def update_application
+    def update_config_application
       # autoload actions directory
       application "config.autoload_paths += %W[\#{Rails.root}/app/commands]"
 

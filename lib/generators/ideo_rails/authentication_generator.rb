@@ -26,15 +26,15 @@ module IdeoRails
       write_messages
 
       # copy teplates
-      manage_commands
-      manage_events
-      manage_handlers
-      manage_controllers
-      manage_libraries
+      manage_app_commands
+      manage_app_events
+      manage_app_handlers
+      manage_app_controllers
+      manage_lib
       manage_test
 
       # update application codes
-      update_routes
+      update_config_routes
 
       # create required models
       run_models_generator
@@ -53,7 +53,7 @@ module IdeoRails
       "
     end
 
-    def manage_commands
+    def manage_app_commands
       # copy commands
       copy_file('app/commands/authentication/login_command.rb',
                 'app/commands/authentication/login_command.rb')
@@ -61,25 +61,25 @@ module IdeoRails
                 'app/commands/authentication/signup_command.rb')
     end
 
-    def manage_events
+    def manage_app_events
       # copy events
       copy_file('app/events/authentication/signup_event.rb',
                 'app/events/authentication/signup_event.rb')
     end
 
-    def manage_handlers
+    def manage_app_handlers
       # copy handlers
       copy_file('app/handlers/user_handler.rb',
                 'app/handlers/user_handler.rb')
     end
 
-    def manage_controllers
+    def manage_app_controllers
       # copy controllers
       copy_file('app/controllers/api/authentication_controller.rb',
                 'app/controllers/api/authentication_controller.rb')
     end
 
-    def manage_libraries
+    def manage_lib
       # copy libraries
       copy_file('lib/authentication_controllers_helpers.rb',
                 'lib/authentication_controllers_helpers.rb')
@@ -95,7 +95,7 @@ module IdeoRails
                 'test/commands/authentication/signup_command_test.rb')
     end
 
-    def update_routes
+    def update_config_routes
       # add login and signup on routes
       route "post 'api/authentication/login', to: 'api/authentication#login', as: 'api_authentication_login'"
       route "post 'api/authentication/signup', to: 'api/authentication#signup', as: 'api_authentication_signup'"

@@ -27,17 +27,18 @@ module IdeoRails
       # copy templates
       manage_gemfile
       manage_rubocop
-      manage_environments
-      manage_initializer
-      manage_libraries
+      manage_config_environments
+      manage_config_initializers
+      manage_lib
       manage_changelog
-      manage_views
-      manage_assets
-      manage_controllers
+      manage_app_views
+      manage_app_assets
+      manage_app_controllers
       manage_test
+      manage_public
 
       # update application codes
-      update_application
+      update_config_application
     end
 
     private
@@ -65,7 +66,7 @@ module IdeoRails
       copy_file('.rubocop.yml', '.rubocop.yml')
     end
 
-    def manage_environments
+    def manage_config_environments
       # copy environment test
       @environment_settings = DEFAULT_ENVIRONMENT_TEST_SETTINGS
       template('config/environments/environment.rb',
@@ -82,13 +83,13 @@ module IdeoRails
                'config/environments/production.rb')
     end
 
-    def manage_initializer
+    def manage_config_initializers
       # copy config initializers
       copy_file('config/initializers/_settings.rb',
                 'config/initializers/_settings.rb')
     end
 
-    def manage_libraries
+    def manage_lib
       # copy lib helpers
       copy_file('lib/api_controllers_helpers.rb',
                 'lib/api_controllers_helpers.rb')
@@ -104,19 +105,19 @@ module IdeoRails
                 'changelog/version_1.0')
     end
 
-    def manage_views
+    def manage_app_views
       # copy layout
       template('app/views/layouts/application.html.erb',
                'app/views/layouts/application.html.erb')
     end
 
-    def manage_assets
+    def manage_app_assets
       # copy application js
       copy_file('app/assets/javascripts/application.js',
                 'app/assets/javascripts/application.js')
     end
 
-    def manage_controllers
+    def manage_app_controllers
       # copy api application controller
       copy_file('app/controllers/api/application_controller.rb',
                 'app/controllers/api/application_controller.rb')
@@ -127,7 +128,14 @@ module IdeoRails
       copy_file('test/test_helper.rb', 'test/test_helper.rb')
     end
 
-    def update_application
+    def manage_public
+      # copy default error pages
+      copy_file('public/404.html', 'public/404.html')
+      copy_file('public/422.html', 'public/422.html')
+      copy_file('public/500.html', 'public/500.html')
+    end
+
+    def update_config_application
       # autoload lib path
       application "config.autoload_paths += %W[\#{Rails.root}/lib]"
     end
