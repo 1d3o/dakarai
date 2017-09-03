@@ -8,12 +8,12 @@ require 'ideo_rails/helpers'
 
 module IdeoRails
 
-  # AuthenticationGenerator.
-  class AuthenticationGenerator < Rails::Generators::Base
+  # EvntAuthenticationGenerator.
+  class EvntAuthenticationGenerator < Rails::Generators::Base
 
     include IdeoRails::Helpers
 
-    source_root File.expand_path('../../../templates/authentication', __FILE__)
+    source_root File.expand_path('../../../templates/evnt_authentication', __FILE__)
 
     argument :model_name, type: :string, default: 'Queries::User'
 
