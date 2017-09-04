@@ -106,9 +106,13 @@ module IdeoRails
     end
 
     def manage_app_views
-      # copy layout
+      # copy application layout
       template('app/views/layouts/application.html.erb',
                'app/views/layouts/application.html.erb')
+      
+      # copy mailer layout
+      template('app/views/layouts/mailer.html.erb',
+               'app/views/layouts/mailer.html.erb')
     end
 
     def manage_app_assets

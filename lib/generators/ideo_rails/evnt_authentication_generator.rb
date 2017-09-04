@@ -20,8 +20,6 @@ module IdeoRails
     desc 'This function add an authentication system with Evnt on
     your project.'
     def create_authentication
-      @names = model_to_names(model_name)
-
       # write messages to user
       write_messages
 
@@ -30,6 +28,8 @@ module IdeoRails
       manage_app_events
       manage_app_handlers
       manage_app_controllers
+      manage_app_mailers
+      manage_app_views
       manage_lib
       manage_test
 
@@ -79,6 +79,18 @@ module IdeoRails
                 'app/controllers/api/authentication_controller.rb')
     end
 
+    def manage_app_mailers
+      # copy mailers
+      copy_file('app/mailers/authentication_mailer.rb',
+                'app/mailers/authentication_mailer.rb')
+    end
+
+    def manage_app_views
+      # copy mail templates
+      copy_file('app/views/mailers/authentication/confirm_email.html.erb',
+                'app/views/mailers/authentication/confirm_email.html.erb')
+    end
+
     def manage_lib
       # copy libraries
       copy_file('lib/authentication_controllers_helpers.rb',
@@ -103,7 +115,7 @@ module IdeoRails
 
     def run_models_generator
       # generate entity model
-      generate 'model', "Queries::User uuid:string name:string surname:string email:string"
+      generate 'model', "Queries::User uuid:string name:string surname:string email:string email_confirmed:boolean"
 
       # generate entity passwords model
       generate 'model', "Queries::UserPassword user_uuid:string password_digest:string"
