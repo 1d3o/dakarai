@@ -59,12 +59,16 @@ module IdeoRails
                 'app/commands/authentication/login_command.rb')
       copy_file('app/commands/authentication/signup_command.rb',
                 'app/commands/authentication/signup_command.rb')
+      copy_file('app/commands/authentication/confirm_email_command.rb',
+                'app/commands/authentication/confirm_email_command.rb')
     end
 
     def manage_app_events
       # copy events
       copy_file('app/events/authentication/signup_event.rb',
                 'app/events/authentication/signup_event.rb')
+      copy_file('app/events/authentication/confirm_email_event.rb',
+                'app/events/authentication/confirm_email_event.rb')
     end
 
     def manage_app_handlers
@@ -89,6 +93,8 @@ module IdeoRails
       # copy mail templates
       copy_file('app/views/mailers/authentication/confirm_email.html.erb',
                 'app/views/mailers/authentication/confirm_email.html.erb')
+      copy_file('app/views/mailers/authentication/confirm_email_completed.html.erb',
+                'app/views/mailers/authentication/confirm_email_completed.html.erb')
     end
 
     def manage_lib
@@ -111,6 +117,7 @@ module IdeoRails
       # add login and signup on routes
       route "post 'api/authentication/login', to: 'api/authentication#login', as: 'api_authentication_login'"
       route "post 'api/authentication/signup', to: 'api/authentication#signup', as: 'api_authentication_signup'"
+      route "post 'api/authentication/confirm_email', to: 'api/authentication#confirm_email', as: 'api_authentication_confirm_email'"
     end
 
     def run_models_generator

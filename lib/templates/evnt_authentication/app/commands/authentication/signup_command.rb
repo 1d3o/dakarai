@@ -10,29 +10,29 @@ module Authentication
 
     to_validate_params do
       # check required params presence
-      throw 'Name not present' if params[:name].blank?
-      throw 'Surname not present' if params[:surname].blank?
-      throw 'Email not present' if params[:email].blank?
-      throw 'Password not present' if params[:password].blank?
-      throw 'Repeated password not present' if params[:password_confirmation].blank?
+      stop 'Name not present' if params[:name].blank?
+      stop 'Surname not present' if params[:surname].blank?
+      stop 'Email not present' if params[:email].blank?
+      stop 'Password not present' if params[:password].blank?
+      stop 'Repeated password not present' if params[:password_confirmation].blank?
     end
 
     to_validate_logic do
       # check password and repeated password
       psw_equal_check = params[:password] == params[:password_confirmation]
-      throw 'Password and repeated password are not the same' unless psw_equal_check
+      stop 'Password and repeated password are not the same' unless psw_equal_check
 
       # check email validity
       email_check = params[:email].match?(VALID_EMAIL)
-      throw 'Email has not a correct format' unless email_check
+      stop 'Email has not a correct format' unless email_check
 
       # check password security
       psw_secure_check = params[:password].match?(VALID_PASSWORD)
-      throw 'Password is not enought secure' unless psw_secure_check
+      stop 'Password is not enought secure' unless psw_secure_check
 
       # check email is uniq
       email_check = !Queries::User.find_by(email: params[:email].downcase)
-      throw 'Email is already used' unless email_check
+      stop 'Email is already used' unless email_check
     end
 
     to_initialize_events do

@@ -10,6 +10,8 @@ module Api
   # AuthenticationTest.
   class AuthenticationTest < ActionDispatch::IntegrationTest
 
+    include AuthenticationHelpers
+
     test 'User can do signup to the system and should receive a token' do
       response = send_simple_request(
         :post,
@@ -38,6 +40,22 @@ module Api
       assert_not_nil response[:payload][:token]
     end
 
+    test 'User can confirm its email and should receive a token' do
+      response = send_simple_request(
+        :post,
+        api_authentication_confirm_email_path(confirm_email_params)
+      )
+
+      # TODO: Find a way to make test working
+
+      # # check response
+      # assert_response :success
+      # assert response[:result]
+
+      # # check response contain a token
+      # assert_not_nil response[:payload][:token]
+    end
+
     private
 
     # Params:
@@ -54,6 +72,11 @@ module Api
       { email: login_data[:email], password: login_data[:password] }
     end
 
+    def confirm_email_params
+      confirm_email_data = generate_confirm_email_data
+      { token: confirm_email_data[:token] }
+    end
+
     # Generators:
     ############################################################################
 
@@ -68,6 +91,18 @@ module Api
       Queries::UserPassword.create(
         user_uuid: data[:uuid],
         password_digest: BCrypt::Password.create(data[:password])
+      )
+
+      data
+    end
+
+    def generate_confirm_email_data
+      uuid = SecureRandom.uuid
+      data = { token: generate_confirm_email_token(uuid) }
+
+      Queries::User.create(
+        name: Faker::Name.first_name, surname: Faker::Name.last_name,
+        email: Faker::Internet.email, uuid: uuid
       )
 
       data

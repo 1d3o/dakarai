@@ -159,6 +159,20 @@ module Authentication
       assert !user_password.password_digest.nil?
     end
 
+    # The system should deliver an email to the user to request the email
+    # confirmations.
+    ############################################################################
+
+    def test_confirm_email_submit
+      command = command_with_custom
+      assert command.completed?
+
+      # test the confirmation email is delivered
+      last_email = ActionMailer::Base.deliveries.last
+      assert !last_email.nil?
+      assert_equal command.params[:email], last_email.to.first
+    end
+
     private
 
     # Helpers:

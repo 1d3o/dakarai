@@ -26,4 +26,20 @@ class UserHandler < ApplicationHandler
     end
   end
 
+  on :authentication_confirm_email do
+    to_update_queries do
+      # set email confirmed to user
+      event.payload[:_user].update(
+        email_confirmed: true
+      )
+    end
+
+    to_manage_event do
+      # send email confirmation completed to user
+      AuthenticationMailer.confirm_email_completed(
+        event.payload[:_user]
+      ).deliver_later
+    end
+  end
+
 end
