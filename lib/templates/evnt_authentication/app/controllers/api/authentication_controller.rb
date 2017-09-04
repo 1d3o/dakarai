@@ -8,7 +8,7 @@ module Api
   # AuthenticationController.
   class AuthenticationController < ApplicationController
 
-    include AuthenticationControllersHelpers
+    include AuthenticationHelpers
 
     # This action permit users to do the signup.
     def signup

@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-# AuthenticationControllersHelpers.
+# AuthenticationHelpers.
 # Created by Ideo SRL on 02-09-2017.
 
-# AuthenticationControllersHelpers.
-module AuthenticationControllersHelpers
+# AuthenticationHelpers.
+module AuthenticationHelpers
 
   # This function generates and returns a secure authentication token
   # with a payload inside.

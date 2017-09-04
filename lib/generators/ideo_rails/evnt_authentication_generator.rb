@@ -93,8 +93,8 @@ module IdeoRails
 
     def manage_lib
       # copy libraries
-      copy_file('lib/authentication_controllers_helpers.rb',
-                'lib/authentication_controllers_helpers.rb')
+      copy_file('lib/authentication_helpers.rb',
+                'lib/authentication_helpers.rb')
     end
 
     def manage_test
