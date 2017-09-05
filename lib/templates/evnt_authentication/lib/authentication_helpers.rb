@@ -27,7 +27,7 @@ module AuthenticationHelpers
     }
 
     # return generated token
-    JWT.encode(payload, Rails.application.secrets.secret_key_base, 'none')
+    JWT.encode(payload, Rails.application.secrets.secret_key_base, 'HS256')
   end
 
   # This function checks that an authentication token is valid and return its
@@ -73,7 +73,7 @@ module AuthenticationHelpers
     }
 
     # return generated token
-    JWT.encode(payload, Rails.application.secrets.secret_key_base, 'none')
+    JWT.encode(payload, Rails.application.secrets.secret_key_base, 'HS256')
   end
 
   # This function checks that a confirm email token is valid and return its
