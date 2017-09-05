@@ -8,7 +8,7 @@ module AuthenticationHelpers
 
   # This function reads a token and return its payload.
   def read_token(token)
-    body = JWT.decode(token, Rails.application.secrets.secret_key_base)[0]
+    body = JWT.decode(token, Rails.application.secrets.secret_key_base, true)[0]
     HashWithIndifferentAccess.new(body)
   rescue
     nil
@@ -27,7 +27,7 @@ module AuthenticationHelpers
     }
 
     # return generated token
-    JWT.encode(payload, Rails.application.secrets.secret_key_base)
+    JWT.encode(payload, Rails.application.secrets.secret_key_base, 'none')
   end
 
   # This function checks that an authentication token is valid and return its
@@ -73,7 +73,7 @@ module AuthenticationHelpers
     }
 
     # return generated token
-    JWT.encode(payload, Rails.application.secrets.secret_key_base)
+    JWT.encode(payload, Rails.application.secrets.secret_key_base, 'none')
   end
 
   # This function checks that a confirm email token is valid and return its
