@@ -179,7 +179,7 @@ module Authentication
     ############################################################################
 
     def command_with_custom(key = nil, value = nil)
-      ::Authentication::SignupCommand.new(
+      ::SignupCommand.new(
         name: key == :name ? value : Faker::Name.first_name,
         surname: key == :surname ? value : Faker::Name.last_name,
         email: key == :email ? value : Faker::Internet.email,
@@ -189,7 +189,7 @@ module Authentication
     end
 
     def command_with_password(password)
-      ::Authentication::SignupCommand.new(
+      ::SignupCommand.new(
         name: Faker::Name.first_name, surname: Faker::Name.last_name,
         email: Faker::Internet.email, password: password,
         password_confirmation: password
