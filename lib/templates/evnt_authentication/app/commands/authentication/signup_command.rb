@@ -31,20 +31,17 @@ module Authentication
       stop 'Password is not enought secure' unless psw_secure_check
 
       # check email is uniq
-      email_check = !Queries::User.find_by(email: params[:email].downcase)
+      email_check = !User.find_by(email: params[:email].downcase)
       stop 'Email is already used' unless email_check
     end
 
     to_initialize_events do
-      # generate a secure uuid
-      uuid = SecureRandom.uuid
-
       # generate a secure password digest
       password_digest = BCrypt::Password.create(params[:password])
 
       # initialize event
       Authentication::SignupEvent.new(
-        uuid: uuid, name: params[:name], surname: params[:surname],
+        name: params[:name], surname: params[:surname],
         email: params[:email].downcase, password_digest: password_digest
       )
     end

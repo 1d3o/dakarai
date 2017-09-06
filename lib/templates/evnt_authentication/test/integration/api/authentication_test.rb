@@ -81,15 +81,14 @@ module Api
     ############################################################################
 
     def generate_login_data
-      data = { email: Faker::Internet.email, password: 'Password1',
-               uuid: SecureRandom.uuid }
+      data = { email: Faker::Internet.email, password: 'Password1'}
 
-      Queries::User.create(
+      user = User.create(
         name: Faker::Name.first_name, surname: Faker::Name.last_name,
-        uuid: data[:uuid], email: data[:email]
+        email: data[:email]
       )
-      Queries::UserPassword.create(
-        user_uuid: data[:uuid],
+      UserPassword.create(
+        user_id: user.id,
         password_digest: BCrypt::Password.create(data[:password])
       )
 
@@ -97,14 +96,11 @@ module Api
     end
 
     def generate_confirm_email_data
-      uuid = SecureRandom.uuid
-      data = { token: generate_confirm_email_token(uuid) }
-
-      Queries::User.create(
+      user = User.create(
         name: Faker::Name.first_name, surname: Faker::Name.last_name,
-        email: Faker::Internet.email, uuid: uuid
+        email: Faker::Internet.email
       )
-
+      data = { token: generate_confirm_email_token(user.id) }
       data
     end
 

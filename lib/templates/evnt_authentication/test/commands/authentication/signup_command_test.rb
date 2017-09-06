@@ -111,9 +111,9 @@ module Authentication
       assert command.completed?
 
       # check if user is saved with downcase email
-      user = Queries::User.find_by(email: email)
+      user = User.find_by(email: email)
       assert user.nil?
-      user = Queries::User.find_by(email: email.downcase)
+      user = User.find_by(email: email.downcase)
       assert !user.nil?
     end
 
@@ -147,14 +147,14 @@ module Authentication
       assert command.completed?
 
       # check if user row is saved on database
-      user = Queries::User.all.last
+      user = User.all.last
       assert !user.nil?
       assert command.params[:name], user.name
       assert command.params[:surname], user.surname
       assert command.params[:email], user.email
 
       # check if user password row is saved on database
-      user_password = Queries::UserPassword.find_by(user_uuid: user.uuid)
+      user_password = UserPassword.find_by(user_id: user.id)
       assert !user_password.nil?
       assert !user_password.password_digest.nil?
     end

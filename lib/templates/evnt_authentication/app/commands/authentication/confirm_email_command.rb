@@ -26,7 +26,7 @@ module Authentication
       end
 
       # find user and check if needs a confirmation
-      @user = Queries::User.find_by(uuid: token[:unique_key])
+      @user = User.find_by(id: token[:unique_key])
       unless @user
         stop 'User not valid for the token'
         break
@@ -40,7 +40,7 @@ module Authentication
     to_initialize_events do
       # initialize event
       Authentication::ConfirmEmailEvent.new(
-        user_uuid: @user.uuid,
+        user_id: @user.id,
         email: @user.email,
         _user: @user
       )

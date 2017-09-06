@@ -19,9 +19,9 @@ module Api
         return
       end
 
-      user = Queries::User.find_by(email: params[:email])
+      user = User.find_by(email: params[:email])
 
-      render_request_success(token: generate_authentication_token(user.uuid))
+      render_request_success(token: generate_authentication_token(user.id))
     rescue => e
       logger.fatal e
       render_server_error('Internal server error..', info: e.to_s)
@@ -37,7 +37,7 @@ module Api
       end
 
       render_request_success(
-        token: generate_authentication_token(command.user.uuid)
+        token: generate_authentication_token(command.user.id)
       )
     rescue => e
       logger.fatal e
@@ -54,7 +54,7 @@ module Api
       end
 
       render_request_success(
-        token: generate_authentication_token(command.user.uuid)
+        token: generate_authentication_token(command.user.id)
       )
     rescue => e
       logger.fatal e

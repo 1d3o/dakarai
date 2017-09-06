@@ -122,10 +122,10 @@ module IdeoRails
 
     def run_models_generator
       # generate entity model
-      generate 'model', "Queries::User uuid:string name:string surname:string email:string email_confirmed:boolean"
+      generate 'model', "User name:string surname:string email:string email_confirmed:boolean"
 
       # generate entity passwords model
-      generate 'model', "Queries::UserPassword user_uuid:string password_digest:string"
+      generate 'model', "UserPassword user_id:integer password_digest:string"
     end
 
   end

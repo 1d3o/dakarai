@@ -18,14 +18,14 @@ module Authentication
 
     to_validate_logic do
       # check user presence
-      @user = Queries::User.find_by(email: params[:email])
+      @user = User.find_by(email: params[:email])
       unless @user
         stop 'There are not user with the selected email'
         break
       end
 
       # check user password presence
-      user_password = Queries::UserPassword.find_by(user_uuid: @user.uuid)
+      user_password = UserPassword.find_by(user_id: @user.id)
       unless user_password
         stop 'The user password is not registered on the system'
         break

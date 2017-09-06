@@ -10,7 +10,7 @@ module Authentication
 
     name_is :authentication_confirm_email
 
-    attributes_are :user_uuid, :email
+    attributes_are :user_id, :email
 
     handlers_are [
       UserHandler.new
