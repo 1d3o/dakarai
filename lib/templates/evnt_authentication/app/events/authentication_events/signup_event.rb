@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-# Authentication::SignupEvent.
+# AuthenticationEvents::SignupEvent.
 # Created by Ideo SRL on 02-09-2017.
 
-module Authentication
+module AuthenticationEvents
 
   # SignupEvent.
   class SignupEvent < ApplicationEvent

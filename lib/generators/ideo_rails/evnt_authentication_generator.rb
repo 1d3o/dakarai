@@ -55,20 +55,20 @@ module IdeoRails
 
     def manage_app_commands
       # copy commands
-      copy_file('app/commands/authentication/login_command.rb',
-                'app/commands/authentication/login_command.rb')
-      copy_file('app/commands/authentication/signup_command.rb',
-                'app/commands/authentication/signup_command.rb')
-      copy_file('app/commands/authentication/confirm_email_command.rb',
-                'app/commands/authentication/confirm_email_command.rb')
+      copy_file('app/commands/authentication_commands/login_command.rb',
+                'app/commands/authentication_commands/login_command.rb')
+      copy_file('app/commands/authentication_commands/signup_command.rb',
+                'app/commands/authentication_commands/signup_command.rb')
+      copy_file('app/commands/authentication_commands/confirm_email_command.rb',
+                'app/commands/authentication_commands/confirm_email_command.rb')
     end
 
     def manage_app_events
       # copy events
-      copy_file('app/events/authentication/signup_event.rb',
-                'app/events/authentication/signup_event.rb')
-      copy_file('app/events/authentication/confirm_email_event.rb',
-                'app/events/authentication/confirm_email_event.rb')
+      copy_file('app/events/authentication_events/signup_event.rb',
+                'app/events/authentication_events/signup_event.rb')
+      copy_file('app/events/authentication_events/confirm_email_event.rb',
+                'app/events/authentication_events/confirm_email_event.rb')
     end
 
     def manage_app_handlers
@@ -109,8 +109,8 @@ module IdeoRails
                 'test/integration/api/authentication_test.rb')
 
       # copy commands tests
-      copy_file('test/commands/authentication/signup_command_test.rb',
-                'test/commands/authentication/signup_command_test.rb')
+      copy_file('test/commands/authentication_commands/signup_command_test.rb',
+                'test/commands/authentication_commands/signup_command_test.rb')
     end
 
     def update_config_routes

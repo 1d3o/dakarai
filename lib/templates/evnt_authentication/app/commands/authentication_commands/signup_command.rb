@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-# Authentication::SignupCommand.
+# AuthenticationCommands::SignupCommand.
 # Created by Ideo SRL on 02-09-2017.
 
-module Authentication
+module AuthenticationCommands
 
   # SignupCommand.
   class SignupCommand < ApplicationCommand

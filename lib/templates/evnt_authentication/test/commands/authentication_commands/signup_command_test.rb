@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-# Authentication::SignupCommandTest.
+# AuthenticationCommands::SignupCommandTest.
 # Created by Ideo SRL on 02-09-2017.
 
 require 'test_helper'
 
-module Authentication
+module AuthenticationCommands
 
   # SignupCommandTest.
   class SignupCommandTest < ActiveSupport::TestCase
