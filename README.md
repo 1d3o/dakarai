@@ -1,4 +1,4 @@
-# Ideo Rails
+# Ideo Rails generator
 
 Official code generator for Rails projects.
 
