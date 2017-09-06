@@ -27,10 +27,10 @@ module IdeoRails
       # copy templates
       manage_gemfile
       manage_rubocop
+      manage_md
       manage_config_environments
       manage_config_initializers
       manage_lib
-      manage_changelog
       manage_app_views
       manage_app_assets
       manage_app_controllers
@@ -66,6 +66,12 @@ module IdeoRails
       copy_file('.rubocop.yml', '.rubocop.yml')
     end
 
+    def manage_md
+      # copy readme and changelog
+      template('README.md', 'README.md')
+      template('CHANGELOG.md', 'CHANGELOG.md')
+    end
+
     def manage_config_environments
       # copy environment test
       @environment_settings = DEFAULT_ENVIRONMENT_TEST_SETTINGS
@@ -99,17 +105,11 @@ module IdeoRails
                 'lib/tests_helpers.rb')
     end
 
-    def manage_changelog
-      # copy changelog
-      copy_file('changelog/version_1.0',
-                'changelog/version_1.0')
-    end
-
     def manage_app_views
       # copy application layout
       template('app/views/layouts/application.html.erb',
                'app/views/layouts/application.html.erb')
-      
+
       # copy mailer layout
       template('app/views/layouts/mailer.html.erb',
                'app/views/layouts/mailer.html.erb')
