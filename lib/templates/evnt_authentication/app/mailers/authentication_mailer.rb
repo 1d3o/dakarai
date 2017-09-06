@@ -8,7 +8,7 @@ class AuthenticationMailer < ApplicationMailer
   def confirm_email(user)
     # set mail contents
     @user = user
-    @token = generate_confirm_email_token(user.uuid)
+    @token = generate_confirm_email_token(user.id)
 
     # send email
     mail(
