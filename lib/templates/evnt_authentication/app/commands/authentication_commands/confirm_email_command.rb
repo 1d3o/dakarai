@@ -39,7 +39,7 @@ module AuthenticationCommands
 
     to_initialize_events do
       # initialize event
-      Authentication::ConfirmEmailEvent.new(
+      AuthenticationEvents::ConfirmEmailEvent.new(
         user_id: @user.id,
         email: @user.email,
         _user: @user

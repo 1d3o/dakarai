@@ -40,7 +40,7 @@ module AuthenticationCommands
       password_digest = BCrypt::Password.create(params[:password])
 
       # initialize event
-      Authentication::SignupEvent.new(
+      AuthenticationEvents::SignupEvent.new(
         name: params[:name], surname: params[:surname],
         email: params[:email].downcase, password_digest: password_digest
       )
