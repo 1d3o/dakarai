@@ -26,6 +26,9 @@ Rails.application.configure do
   # Use server only for api. [true, false]
   config.api_only = false
 
+  # Disable Rails's static asset server (Apache or nginx will already do this).
+  config.serve_static_assets = <%= @environment_settings[:serve_static_assets] %>
+
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem. {development}
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker

@@ -12,6 +12,7 @@ module IdeoRails
       cache_classes: false,
       eager_load: false,
       cache_store: ':memory_store',
+      serve_static_assets: false,
       active_support: {
         deprecation: ':stderr'
       },
@@ -56,6 +57,7 @@ module IdeoRails
       cache_classes: false,
       eager_load: false,
       cache_store: ':memory_store',
+      serve_static_assets: false,
       active_support: {
         deprecation: ':log'
       },
@@ -100,6 +102,7 @@ module IdeoRails
       cache_classes: true,
       eager_load: true,
       cache_store: ':redis_store',
+      serve_static_assets: false,
       active_support: {
         deprecation: ':notify'
       },
