@@ -10,7 +10,7 @@ module AuthenticationEvents
 
     name_is :authentication_signup
 
-    attributes_are :name, :surname, :email, :password_digest
+    attributes_are :uuid, :name, :surname, :email, :password_digest
 
     handlers_are [
       UserHandler.new

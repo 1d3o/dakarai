@@ -10,12 +10,12 @@ class UserHandler < ApplicationHandler
     to_update_queries do
       # update user query to save user informations
       @user = User.create(
-        name: event.payload[:name], surname: event.payload[:surname],
-        email: event.payload[:email]
+        uuid: event.payload[:uuid], name: event.payload[:name],
+        surname: event.payload[:surname], email: event.payload[:email]
       )
       # update user password query to save user password
       UserPassword.create(
-        user_id: @user.id,
+        user_uuid: event.payload[:uuid],
         password_digest: event.payload[:password_digest]
       )
     end

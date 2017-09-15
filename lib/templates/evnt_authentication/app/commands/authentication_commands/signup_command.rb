@@ -36,12 +36,15 @@ module AuthenticationCommands
     end
 
     to_initialize_events do
+      # generate a secure uuid
+      uuid = SecureRandom.uuid
+
       # generate a secure password digest
       password_digest = BCrypt::Password.create(params[:password])
 
       # initialize event
       AuthenticationEvents::SignupEvent.new(
-        name: params[:name], surname: params[:surname],
+        uuid: uuid, name: params[:name], surname: params[:surname],
         email: params[:email].downcase, password_digest: password_digest
       )
     end

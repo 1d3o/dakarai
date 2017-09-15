@@ -33,12 +33,10 @@ module IdeoRails
       manage_app_views
       manage_lib
       manage_test
+      manage_db_migrations unless options['no-migrations']
 
       # update application codes
       update_config_routes
-
-      # create required models
-      run_migrations_generator unless options['no-migrations']
     end
 
     private
@@ -120,6 +118,14 @@ module IdeoRails
       # copy commands tests
       copy_file('test/commands/authentication_commands/signup_command_test.rb',
                 'test/commands/authentication_commands/signup_command_test.rb')
+    end
+
+    def manage_db_migrations
+      # copy handlers
+      copy_file('db/migrate/20170914232137_create_users.rb',
+                'db/migrate/20170914232137_create_users.rb')
+      copy_file('db/migrate/20170914232139_create_user_passwords.rb',
+                'db/migrate/20170914232139_create_user_passwords.rb')
     end
 
     def update_config_routes

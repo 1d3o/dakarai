@@ -30,10 +30,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'sqlite3'
 
 # Manage crypted password for authentication.
-# gem 'bcrypt'
+gem 'bcrypt'
 
 # Generate Json Web Token.
-# gem 'jwt'
+gem 'jwt'
 
 # Upload files and media.
 # gem 'paperclip'
@@ -42,7 +42,7 @@ gem 'sqlite3'
 # gem 'ideo_rails', git: 'https://github.com/ideonetwork/ideo-rails'
 
 # Enforce system architecture with events.
-# gem 'evnt', git: 'https://github.com/ideonetwork/ruby-evnt'
+gem 'evnt', git: 'https://github.com/ideonetwork/ruby-evnt'
 
 # Create admin panel with Lato.
 # core module:

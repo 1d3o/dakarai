@@ -6,8 +6,13 @@
 # Event.
 class Event < ApplicationRecord
 
-  # Settings:
+  # Serializations:
 
   serialize :payload, Hash
+
+  # Callbacks: (used to prevent update and destroy)
+
+  before_destroy { |_record| raise ReadOnlyRecord }
+  before_update { |_record| raise ReadOnlyRecord }
 
 end
