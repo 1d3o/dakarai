@@ -9,7 +9,7 @@ class UserHandler < ApplicationHandler
   on :authentication_signup do
     to_update_queries do
       # update user query to save user informations
-      @user = User.create(
+      User.create(
         uuid: event.payload[:uuid], name: event.payload[:name],
         surname: event.payload[:surname], email: event.payload[:email]
       )
@@ -22,7 +22,7 @@ class UserHandler < ApplicationHandler
 
     to_manage_event do
       # send email confirmation to user
-      AuthenticationMailer.confirm_email(@user).deliver_later
+      AuthenticationMailer.confirm_email(event.payload[:uuid]).deliver_later
     end
   end
 
@@ -36,9 +36,7 @@ class UserHandler < ApplicationHandler
 
     to_manage_event do
       # send email confirmation completed to user
-      AuthenticationMailer.confirm_email_completed(
-        event.extras[:_user]
-      ).deliver_later
+      AuthenticationMailer.confirm_email_completed(event.payload[:user_uuid]).deliver_later
     end
   end
 

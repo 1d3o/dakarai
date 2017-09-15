@@ -84,11 +84,11 @@ module Api
       data = { email: Faker::Internet.email, password: 'Password1'}
 
       user = User.create(
-        name: Faker::Name.first_name, surname: Faker::Name.last_name,
-        email: data[:email]
+        uuid: SecureRandom.uuid, name: Faker::Name.first_name,
+        surname: Faker::Name.last_name, email: data[:email]
       )
       UserPassword.create(
-        user_id: user.id,
+        user_uuid: user.uuid,
         password_digest: BCrypt::Password.create(data[:password])
       )
 
@@ -97,8 +97,8 @@ module Api
 
     def generate_confirm_email_data
       user = User.create(
-        name: Faker::Name.first_name, surname: Faker::Name.last_name,
-        email: Faker::Internet.email
+        uuid: SecureRandom.uuid, name: Faker::Name.first_name,
+        surname: Faker::Name.last_name, email: Faker::Internet.email
       )
       data = { token: generate_confirm_email_token(user.id) }
       data

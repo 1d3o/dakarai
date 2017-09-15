@@ -23,12 +23,12 @@ ActiveRecord::Schema.define(version: 20170914232139) do
     t.string "password_digest"
   end
 
-  create_table "users", id: false, force: :cascade do |t|
-    t.string "uuid"
+  create_table "users", primary_key: "uuid", id: :string, force: :cascade do |t|
     t.string "name"
     t.string "surname"
     t.string "email"
     t.boolean "email_confirmed"
+    t.index ["uuid"], name: "sqlite_autoindex_users_1", unique: true
   end
 
 end

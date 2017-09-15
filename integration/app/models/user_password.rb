@@ -5,5 +5,5 @@
 
 # UserPassword.
 class UserPassword < ApplicationRecord
-  
+
 end

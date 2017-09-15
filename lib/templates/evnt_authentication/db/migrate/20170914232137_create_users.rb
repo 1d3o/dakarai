@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
 
   def change
     create_table :users, id: false do |t|
-      t.string :uuid, primary: true
+      t.string :uuid, primary_key: true
 
       t.string :name
       t.string :surname

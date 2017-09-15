@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/ideonetwork/ruby-evnt
-  revision: 7dcb3d45266c861df4d3e4faa9f6355ef879bc70
+  revision: ca7bf3acfdc1d7b8b7a6b24944d204bc4ab34080
   specs:
     evnt (2.0.1)
 
@@ -167,11 +167,11 @@ GEM
       codeclimate-engine-rb (~> 0.4.0)
       parser (>= 2.4.0.0, < 2.5)
       rainbow (~> 2.0)
-    rubocop (0.49.1)
+    rubocop (0.50.0)
       parallel (~> 1.10)
       parser (>= 2.3.3.1, < 3.0)
       powerpack (~> 0.1)
-      rainbow (>= 1.99.1, < 3.0)
+      rainbow (>= 2.2.2, < 3.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-graphviz (1.2.3)

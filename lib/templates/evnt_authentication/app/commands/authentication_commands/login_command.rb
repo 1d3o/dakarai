@@ -25,7 +25,7 @@ module AuthenticationCommands
       end
 
       # check user password presence
-      user_password = UserPassword.find_by(user_id: @user.id)
+      user_password = UserPassword.find_by(user_uuid: @user.uuid)
       unless user_password
         stop 'The user password is not registered on the system'
         break

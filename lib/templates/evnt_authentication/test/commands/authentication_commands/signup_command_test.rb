@@ -38,8 +38,8 @@ module AuthenticationCommands
       assert !command.completed?
     end
 
-    # The email should have a correct format.
-    ############################################################################
+    # # The email should have a correct format.
+    # ############################################################################
 
     def test_email_format
       # negative examples
@@ -47,19 +47,19 @@ module AuthenticationCommands
       assert !command.completed?
       command = command_with_custom(:email, 'example@mail')
       assert !command.completed?
-      command = command_with_custom(:email, '@mail.it')
+      command = command_with_custom(:email, '@mail.com')
       assert !command.completed?
-      command = command_with_custom(:email, 'mail.it')
+      command = command_with_custom(:email, 'mail.com')
       assert !command.completed?
 
       # positive example
-      command = command_with_custom(:email, 'test_email_format@mail.it')
+      command = command_with_custom(:email, 'test_email_format@mail.com')
       assert command.completed?
     end
 
-    # The password should have between six and twenty characters and
-    # should contain one or more numbers.
-    ############################################################################
+    # # The password should have between six and twenty characters and
+    # # should contain one or more numbers.
+    # ############################################################################
 
     def test_password_min_length
       # negative example
@@ -91,8 +91,8 @@ module AuthenticationCommands
       assert command.completed?
     end
 
-    # The email should not be used by other users.
-    ############################################################################
+    # # The email should not be used by other users.
+    # ############################################################################
 
     def test_email_uniqueness
       command1 = command_with_custom
@@ -102,8 +102,8 @@ module AuthenticationCommands
       assert !command2.completed?
     end
 
-    # The email should be saved with a downcase format.
-    ############################################################################
+    # # The email should be saved with a downcase format.
+    # ############################################################################
 
     def test_email_dowcase
       email = 'test_email_dowcase@MAIL.COM'
@@ -117,9 +117,9 @@ module AuthenticationCommands
       assert !user.nil?
     end
 
-    # An event should be saved with the user informations.
-    # The user informations are: name, surname, email, password_digest.
-    ############################################################################
+    # # An event should be saved with the user informations.
+    # # The user informations are: name, surname, email, password_digest.
+    # ############################################################################
 
     def test_event_saved
       command = command_with_custom
@@ -137,10 +137,10 @@ module AuthenticationCommands
       assert command.params[:email], payload[:email]
     end
 
-    # The user table should be updated with the new user informations.
-    # The user password should contain the password informartions for
-    # the user.
-    ############################################################################
+    # # The user table should be updated with the new user informations.
+    # # The user password should contain the password informartions for
+    # # the user.
+    # ############################################################################
 
     def test_user_table_update
       command = command_with_custom
@@ -154,14 +154,14 @@ module AuthenticationCommands
       assert command.params[:email], user.email
 
       # check if user password row is saved on database
-      user_password = UserPassword.find_by(user_id: user.id)
+      user_password = UserPassword.find_by(user_uuid: user.uuid)
       assert !user_password.nil?
       assert !user_password.password_digest.nil?
     end
 
-    # The system should deliver an email to the user to request the email
-    # confirmations.
-    ############################################################################
+    # # The system should deliver an email to the user to request the email
+    # # confirmations.
+    # ############################################################################
 
     def test_confirm_email_submit
       command = command_with_custom

@@ -10,7 +10,7 @@ module AuthenticationEvents
 
     name_is :authentication_confirm_email
 
-    attributes_are :user_id, :email
+    attributes_are :user_uuid, :email
 
     handlers_are [
       UserHandler.new
