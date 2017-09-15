@@ -24,12 +24,11 @@ module IdeoRails
       manage_app_commands
       manage_app_events
       manage_app_handlers
+      manage_app_models
+      manage_db_migrations unless options['no-migrations']
 
       # update application codes
       update_config_application
-
-      # run other generators
-      run_model_generator unless options['no-migrations']
     end
 
     private
@@ -61,6 +60,18 @@ module IdeoRails
                 'app/handlers/application_handler.rb')
     end
 
+    def manage_app_models
+      # copy models
+      copy_file('app/models/event.rb',
+                'app/models/event.rb')
+    end
+
+    def manage_db_migrations
+      # copy handlers
+      copy_file('db/migrate/20170914231322_create_events.rb',
+                'db/migrate/20170914231322_create_events.rb')
+    end
+
     def update_config_application
       # autoload actions directory
       application "config.autoload_paths += %W[\#{Rails.root}/app/commands]"
@@ -70,11 +81,6 @@ module IdeoRails
 
       # autoload handlers directory
       application "config.autoload_paths += %W[\#{Rails.root}/app/handlers]"
-    end
-
-    def run_model_generator
-      # generate event model used to save events
-      generate 'model', 'Event name:string payload:text'
     end
 
   end

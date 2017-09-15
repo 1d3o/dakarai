@@ -27,6 +27,7 @@ module IdeoRails
       manage_app_commands
       manage_app_events
       manage_app_handlers
+      manage_app_models
       manage_app_controllers
       manage_app_mailers
       manage_app_views
@@ -37,7 +38,7 @@ module IdeoRails
       update_config_routes
 
       # create required models
-      run_models_generator unless options['no-migrations']
+      run_migrations_generator unless options['no-migrations']
     end
 
     private
@@ -75,6 +76,14 @@ module IdeoRails
       # copy handlers
       copy_file('app/handlers/user_handler.rb',
                 'app/handlers/user_handler.rb')
+    end
+
+    def manage_app_models
+      # copy models
+      copy_file('app/models/user.rb',
+                'app/models/user.rb')
+      copy_file('app/models/user_password.rb',
+                'app/models/user_password.rb')
     end
 
     def manage_app_controllers
@@ -120,12 +129,12 @@ module IdeoRails
       route "post 'api/authentication/confirm_email', to: 'api/authentication#confirm_email', as: 'api_authentication_confirm_email'"
     end
 
-    def run_models_generator
+    def run_migrations_generator
       # generate entity model
-      generate 'model', "User name:string surname:string email:string email_confirmed:boolean"
+      generate 'migration', 'CreateUsers name:string surname:string email:string email_confirmed:boolean'
 
       # generate entity passwords model
-      generate 'model', "UserPassword user_id:integer password_digest:string"
+      generate 'migration', 'CreateUserPasswords user_id:integer password_digest:string'
     end
 
   end
