@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# TODO: Manage the model name in a dynamic way.
-
 require 'rails/generators/base'
 require 'ideo_rails/environments'
 require 'ideo_rails/helpers'
