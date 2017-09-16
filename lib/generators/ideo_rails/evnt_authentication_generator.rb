@@ -133,14 +133,6 @@ module IdeoRails
       route "post 'api/authentication/confirm_email', to: 'api/authentication#confirm_email', as: 'api_authentication_confirm_email'"
     end
 
-    def run_migrations_generator
-      # generate entity model
-      generate 'migration', 'CreateUsers name:string surname:string email:string email_confirmed:boolean'
-
-      # generate entity passwords model
-      generate 'migration', 'CreateUserPasswords user_id:integer password_digest:string'
-    end
-
   end
 
 end
