@@ -30,7 +30,7 @@ rails generate ideo_rails:evnt_initializer
 
 Possible options are:
 
-- **no-migrations** : avoid the generation of Event model and migration.
+- **no-migrations** : avoid the generation of Event migration.
 
 ### Authentication (Not completed or ready for production)
 
@@ -42,4 +42,4 @@ rails generate ideo_rails:evnt_authentication
 
 Possible options are:
 
-- **no-migrations** : avoid the generation of User and UserPassword models and migrations.
+- **no-migrations** : avoid the generation of User and UserPassword migrations.
