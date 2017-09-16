@@ -41,7 +41,7 @@ module Api
     end
 
     test 'User can request a confirmation email' do
-      response = send_simple_request(
+      send_simple_request(
         :post,
         api_authentication_confirm_email_path(confirm_email_params)
       )

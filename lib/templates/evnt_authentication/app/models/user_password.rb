@@ -6,4 +6,8 @@
 # UserPassword.
 class UserPassword < ApplicationRecord
 
+  # Relations:
+
+  belongs_to :user, foreign_key: :user_uuid
+
 end

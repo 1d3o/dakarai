@@ -6,4 +6,8 @@
 # User.
 class User < ApplicationRecord
 
+  # Relations:
+
+  has_one :user_password, dependent: :destroy, foreign_key: :user_uuid
+
 end
