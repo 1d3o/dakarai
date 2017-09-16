@@ -38,6 +38,9 @@ gem 'jwt'
 # Upload files and media.
 # gem 'paperclip'
 
+# Manage jobs.
+# gem 'sidekiq'
+
 # Add Ideo SRL company helpers.
 # gem 'ideo_rails', git: 'https://github.com/ideonetwork/ideo-rails'
 
@@ -53,7 +56,7 @@ gem 'evnt', git: 'https://github.com/ideonetwork/ruby-evnt'
 # gem 'lato_blog', git: 'https://github.com/ideonetwork/lato-blog'
 
 # Test gems
-group :test, :development do
+group :test do
   # ger random data for seeds
   gem 'faker'
 end

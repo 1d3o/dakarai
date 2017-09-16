@@ -40,20 +40,14 @@ module Api
       assert_not_nil response[:payload][:token]
     end
 
-    test 'User can confirm its email and should receive a token' do
+    test 'User can request a confirmation email' do
       response = send_simple_request(
         :post,
         api_authentication_confirm_email_path(confirm_email_params)
       )
 
-      # TODO: Find a way to make test working
-
-      # # check response
-      # assert_response :success
-      # assert response[:result]
-
-      # # check response contain a token
-      # assert_not_nil response[:payload][:token]
+      # check response
+      assert_response :success
     end
 
     private
@@ -73,8 +67,7 @@ module Api
     end
 
     def confirm_email_params
-      confirm_email_data = generate_confirm_email_data
-      { token: confirm_email_data[:token] }
+      { token: 'examplestring' }
     end
 
     # Generators:
@@ -92,15 +85,6 @@ module Api
         password_digest: BCrypt::Password.create(data[:password])
       )
 
-      data
-    end
-
-    def generate_confirm_email_data
-      user = User.create(
-        uuid: SecureRandom.uuid, name: Faker::Name.first_name,
-        surname: Faker::Name.last_name, email: Faker::Internet.email
-      )
-      data = { token: generate_confirm_email_token(user.id) }
       data
     end
 
