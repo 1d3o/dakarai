@@ -61,21 +61,6 @@ module Api
       render_server_error('Internal server error..', info: e.to_s)
     end
 
-    # This action permits users to recover their password.
-    def request_recover_password
-      command = generate_request_recover_password_command
-
-      unless command.completed?
-        render_request_fail(command.error_messages.to_sentence)
-        return
-      end
-
-      render_request_success({})
-    rescue => e
-      logger.fatal e
-      render_server_error('Internal server error..', info: e.to_s)
-    end
-
     private
 
     def generate_signup_command
@@ -92,11 +77,6 @@ module Api
     def generate_confirm_email_command
       command_params = params.permit(:token)
       AuthenticationCommands::ConfirmEmailCommand.new(command_params)
-    end
-
-    def generate_request_recover_password_command
-      command_params = params.permit(:email)
-      AuthenticationCommands::RequestRecoverPasswordCommand.new(command_params)
     end
 
   end

@@ -32,7 +32,7 @@ Possible options are:
 
 - **no-migrations** : avoid the generation of Event migration.
 
-### Authentication (Not completed or ready for production)
+### Authentication
 
 To add all you need to manage users authentication run:
 
