@@ -15,6 +15,7 @@ rails generate ideo_rails:initializer ApplicationName
 Possible options are:
 
 - **dev** : generate project initializations for ideo_rails development purpose.
+- **api** : generate project initializations for an API only application
 
 ## Evnt Commands
 
