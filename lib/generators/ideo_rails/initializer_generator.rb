@@ -17,6 +17,7 @@ module IdeoRails
     argument :application_name, type: :string, default: 'MyApplication'
 
     class_option 'dev', type: :boolean, default: false
+    class_option 'api', type: :boolean, default: false
 
     desc 'This function initialize your Rails project with initial
     required files.'
@@ -107,8 +108,10 @@ module IdeoRails
 
     def manage_app_views
       # copy application layout
-      template('app/views/layouts/application.html.erb',
-               'app/views/layouts/application.html.erb')
+      template(
+        'app/views/layouts/application.html.erb',
+        'app/views/layouts/application.html.erb'
+      ) unless options['api']
 
       # copy mailer layout
       template('app/views/layouts/mailer.html.erb',
@@ -117,8 +120,10 @@ module IdeoRails
 
     def manage_app_assets
       # copy application js
-      copy_file('app/assets/javascripts/application.js',
-                'app/assets/javascripts/application.js')
+      copy_file(
+        'app/assets/javascripts/application.js',
+        'app/assets/javascripts/application.js'
+      ) unless options['api']
     end
 
     def manage_app_controllers
