@@ -11,6 +11,7 @@ module IdeoRails
       debug_exception_response_format: ':default',
       cache_classes: false,
       eager_load: false,
+      api_only: false,
       cache_store: ':memory_store',
       serve_static_assets: false,
       active_support: {
@@ -56,6 +57,7 @@ module IdeoRails
       debug_exception_response_format: ':default',
       cache_classes: false,
       eager_load: false,
+      api_only: false,
       cache_store: ':memory_store',
       serve_static_assets: false,
       active_support: {
@@ -101,6 +103,7 @@ module IdeoRails
       debug_exception_response_format: ':default',
       cache_classes: true,
       eager_load: true,
+      api_only: false,
       cache_store: ':redis_store',
       serve_static_assets: false,
       active_support: {

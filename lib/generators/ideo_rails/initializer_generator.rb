@@ -56,7 +56,10 @@ module IdeoRails
 
     def manage_gemfile
       # copy Gemfile
-      template('Gemfile', 'Gemfile')
+      copy_file('Gemfile', 'Gemfile')
+
+      # add local gem if env is development
+      gem 'ideo_rails', path: '../' if options['dev']
     end
 
     def manage_rubocop
@@ -73,16 +76,19 @@ module IdeoRails
     def manage_config_environments
       # copy environment test
       @environment_settings = DEFAULT_ENVIRONMENT_TEST_SETTINGS
+      @environment_settings[:api_only] = true if options['api']
       template('config/environments/environment.rb',
                'config/environments/test.rb')
 
       # copy environment development
       @environment_settings = DEFAULT_ENVIRONMENT_DEVELOPMENT_SETTINGS
+      @environment_settings[:api_only] = true if options['api']
       template('config/environments/environment.rb',
                'config/environments/development.rb')
 
       # copy environment production
       @environment_settings = DEFAULT_ENVIRONMENT_PRODUCTION_SETTINGS
+      @environment_settings[:api_only] = true if options['api']
       template('config/environments/environment.rb',
                'config/environments/production.rb')
     end
@@ -105,10 +111,10 @@ module IdeoRails
 
     def manage_app_views
       # copy application layout
-      template(
-        'app/views/layouts/application.html.erb',
-        'app/views/layouts/application.html.erb'
-      ) unless options['api']
+      unless options['api']
+        template('app/views/layouts/application.html.erb',
+                 'app/views/layouts/application.html.erb')
+      end
 
       # copy mailer layout
       template('app/views/layouts/mailer.html.erb',
@@ -117,10 +123,10 @@ module IdeoRails
 
     def manage_app_assets
       # copy application js
-      copy_file(
-        'app/assets/javascripts/application.js',
-        'app/assets/javascripts/application.js'
-      ) unless options['api']
+      unless options['api']
+        copy_file('app/assets/javascripts/application.js',
+                  'app/assets/javascripts/application.js')
+      end
     end
 
     def manage_app_controllers

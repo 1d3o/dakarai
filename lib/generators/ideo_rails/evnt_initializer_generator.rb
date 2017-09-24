@@ -25,7 +25,7 @@ module IdeoRails
       manage_app_events
       manage_app_handlers
       manage_app_models
-      manage_db_migrations unless options['no-migrations']
+      manage_db_migrations
 
       # update application codes
       update_config_application
@@ -67,9 +67,11 @@ module IdeoRails
     end
 
     def manage_db_migrations
-      # copy handlers
-      copy_file('db/migrate/20170914231322_create_events.rb',
-                'db/migrate/20170914231322_create_events.rb')
+      # copy migrations
+      unless options['no-migrations']
+        copy_file('db/migrate/20170914231322_create_events.rb',
+                  'db/migrate/20170914231322_create_events.rb')
+      end
     end
 
     def update_config_application
