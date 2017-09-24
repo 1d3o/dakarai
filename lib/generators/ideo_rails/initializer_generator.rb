@@ -56,10 +56,7 @@ module IdeoRails
 
     def manage_gemfile
       # copy Gemfile
-      copy_file('Gemfile', 'Gemfile')
-
-      # add local gem if env is development
-      gem 'ideo_rails', path: '../' if options['dev']
+      template('Gemfile', 'Gemfile')
     end
 
     def manage_rubocop
