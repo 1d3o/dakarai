@@ -24,7 +24,7 @@ Rails.application.configure do
   config.cache_store = <%= @environment_settings[:cache_store] %>
 
   # Use server only for api. [true, false]
-  config.api_only = false
+  config.api_only = <%= !!options['api'] %>
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
   config.serve_static_assets = <%= @environment_settings[:serve_static_assets] %>
