@@ -24,7 +24,7 @@ module Api
       render_request_success(
         token: generate_authentication_token(user.id)
       )
-    rescue StandardErrors => e
+    rescue StandardError => e
       logger.fatal e
       render_server_error('Internal server error..', info: e.to_s)
     end
@@ -41,7 +41,7 @@ module Api
       render_request_success(
         token: generate_authentication_token(command.user.id)
       )
-    rescue StandardErrors => e
+    rescue StandardError => e
       logger.fatal e
       render_server_error('Internal server error..', info: e.to_s)
     end
@@ -56,7 +56,7 @@ module Api
       end
 
       render_request_success({})
-    rescue StandardErrors => e
+    rescue StandardError => e
       logger.fatal e
       render_server_error('Internal server error..', info: e.to_s)
     end
