@@ -17,6 +17,9 @@ module IdeoRails
     def create_evnt_initializer
       # write messages to user
       write_messages
+
+      # copy templates
+      manage_config 
     end
 
     private
@@ -29,6 +32,10 @@ module IdeoRails
       Remember to activate the gems 'sidekiq' and 'redis' on your Gemfile and
       to change the active job queue adapter on the environment settings.
       "
+    end
+
+    def manage_config
+      copy_file('config/sidekiq.yml', 'config/sidekiq.yml')
     end
 
   end

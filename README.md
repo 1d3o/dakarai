@@ -17,6 +17,16 @@ Possible options are:
 - **dev** : generate project initializations for ideo_rails development purpose.
 - **api** : generate project initializations for an API only application
 
+### Sidekiq
+
+to add sidekiq support on your application run:
+
+```console
+rails generate ideo_rails:sidekiq
+```
+
+This command should copy a yml configuration file to run sidekiq.
+
 ## Evnt Commands
 
 Commads used with Evnt gem (https://github.com/ideonetwork/ruby-evnt)
