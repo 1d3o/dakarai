@@ -10,11 +10,8 @@ module AuthenticationCommands
 
     attr_reader :user
 
-    to_validate_params do
-      # check required params presence
-      stop 'Email not present' if params[:email].blank?
-      stop 'Password not present' if params[:password].blank?
-    end
+    validates :email, type: :string, presence: true
+    validates :password, type: :string, presence: true
 
     to_validate_logic do
       # check user presence

@@ -8,14 +8,11 @@ module AuthenticationCommands
   # SignupCommand.
   class SignupCommand < ApplicationCommand
 
-    to_validate_params do
-      # check required params presence
-      stop 'Name not present' if params[:name].blank?
-      stop 'Surname not present' if params[:surname].blank?
-      stop 'Email not present' if params[:email].blank?
-      stop 'Password not present' if params[:password].blank?
-      stop 'Repeated password not present' if params[:password_confirmation].blank?
-    end
+    validates :name, type: :string, presence: true
+    validates :surname, type: :string, presence: true
+    validates :email, type: :string, presence: true
+    validates :password, type: :string, presence: true
+    validates :password_confirmation, type: :string, presence: true
 
     to_validate_logic do
       # check password and repeated password

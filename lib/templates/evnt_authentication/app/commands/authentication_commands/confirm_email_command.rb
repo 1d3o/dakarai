@@ -12,10 +12,7 @@ module AuthenticationCommands
 
     attr_reader :user
 
-    to_validate_params do
-      # check required params presence
-      stop 'Token not present' if params[:token].blank?
-    end
+    validates :token, type: :string, presence: true
 
     to_validate_logic do
       # check token is valid
