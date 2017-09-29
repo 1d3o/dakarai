@@ -25,7 +25,8 @@ to add sidekiq support on your application run:
 rails generate ideo_rails:sidekiq
 ```
 
-This command should copy a yml configuration file to run sidekiq.
+This command should copy a yml configuration file to run sidekiq, a schedule file to manage scheduled jobs
+with sidekiq cron and a sidekiq initializer to manage settings.
 
 ## Evnt Commands
 

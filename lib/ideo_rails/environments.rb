@@ -37,6 +37,7 @@ module IdeoRails
       action_mailer: {
         perform_caching: false,
         raise_delivery_errors: false,
+        deliver_later_queue_name: 'mailer',
         delivery_method: ':test'
       },
       assets: {
@@ -83,6 +84,7 @@ module IdeoRails
       action_mailer: {
         perform_caching: false,
         raise_delivery_errors: true,
+        deliver_later_queue_name: 'mailer',
         delivery_method: ':smtp'
       },
       assets: {
@@ -129,6 +131,7 @@ module IdeoRails
       action_mailer: {
         perform_caching: true,
         raise_delivery_errors: false,
+        deliver_later_queue_name: 'mailer',
         delivery_method: ':smtp'
       },
       assets: {
