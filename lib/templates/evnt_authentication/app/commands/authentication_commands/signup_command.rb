@@ -8,28 +8,28 @@ module AuthenticationCommands
   # SignupCommand.
   class SignupCommand < ApplicationCommand
 
-    validates :name, type: :string, presence: true
-    validates :surname, type: :string, presence: true
-    validates :email, type: :string, presence: true
-    validates :password, type: :string, presence: true
-    validates :password_confirmation, type: :string, presence: true
+    validates :name, type: :string, presence: true, blank: false
+    validates :surname, type: :string, presence: true, blank: false
+    validates :email, type: :string, presence: true, blank: false
+    validates :password, type: :string, presence: true, blank: false
+    validates :password_confirmation, type: :string, presence: true, blank: false
 
     to_validate_logic do
       # check password and repeated password
       psw_equal_check = params[:password] == params[:password_confirmation]
-      stop 'Password and repeated password are not the same' unless psw_equal_check
+      err 'Password and repeated password are not the same' unless psw_equal_check
 
       # check email validity
       email_check = params[:email].match?(VALID_EMAIL)
-      stop 'Email has not a correct format' unless email_check
+      err 'Email has not a correct format' unless email_check
 
       # check password security
       psw_secure_check = params[:password].match?(VALID_PASSWORD)
-      stop 'Password is not enought secure' unless psw_secure_check
+      err 'Password is not enought secure' unless psw_secure_check
 
       # check email is uniq
       email_check = !User.find_by(email: params[:email].downcase)
-      stop 'Email is already used' unless email_check
+      err 'Email is already used' unless email_check
     end
 
     to_initialize_events do

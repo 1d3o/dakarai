@@ -12,24 +12,24 @@ module AuthenticationCommands
 
     attr_reader :user
 
-    validates :token, type: :string, presence: true
+    validates :token, type: :string, presence: true, blank: false
 
     to_validate_logic do
       # check token is valid
       token = check_confirm_email_token(params[:token])
       unless token
-        stop 'Token not valid'
+        err 'Token not valid'
         break
       end
 
       # find user and check if needs a confirmation
       @user = User.find_by(uuid: token[:unique_key])
       unless @user
-        stop 'User not valid for the token'
+        err 'User not valid for the token'
         break
       end
       if @user.email_confirmed
-        stop 'Email already confirmed'
+        err 'Email already confirmed'
         break
       end
     end
