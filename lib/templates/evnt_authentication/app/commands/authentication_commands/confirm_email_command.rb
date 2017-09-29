@@ -12,7 +12,7 @@ module AuthenticationCommands
 
     attr_reader :user
 
-    validates :token, type: :string, presence: true, not_blank: true
+    validates :token, type: :string, presence: true, blank: false
 
     to_validate_logic do
       # check token is valid

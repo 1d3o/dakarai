@@ -8,11 +8,11 @@ module AuthenticationCommands
   # SignupCommand.
   class SignupCommand < ApplicationCommand
 
-    validates :name, type: :string, presence: true, not_blank: true
-    validates :surname, type: :string, presence: true, not_blank: true
-    validates :email, type: :string, presence: true, not_blank: true
-    validates :password, type: :string, presence: true, not_blank: true
-    validates :password_confirmation, type: :string, presence: true, not_blank: true
+    validates :name, type: :string, presence: true, blank: false
+    validates :surname, type: :string, presence: true, blank: false
+    validates :email, type: :string, presence: true, blank: false
+    validates :password, type: :string, presence: true, blank: false
+    validates :password_confirmation, type: :string, presence: true, blank: false
 
     to_validate_logic do
       # check password and repeated password

@@ -10,8 +10,8 @@ module AuthenticationCommands
 
     attr_reader :user
 
-    validates :email, type: :string, presence: true, not_blank: true
-    validates :password, type: :string, presence: true, not_blank: true
+    validates :email, type: :string, presence: true, blank: false
+    validates :password, type: :string, presence: true, blank: false
 
     to_validate_logic do
       # check user presence
