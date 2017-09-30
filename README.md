@@ -56,4 +56,4 @@ Possible options are:
 
 - **no-migrations** : avoid the generation of User and UserPassword migrations.
 
-This command should create controllers, models, commands, events, handlers and mailers used to manage the users authentication. It also creates two migration to create a "users" and "user_passwords" tables.
+This command should create controllers, models, commands, events, handlers and mailers used to manage the users authentication. It also creates two migration to create a **users** and **user_passwords** tables.
