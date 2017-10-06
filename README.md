@@ -2,6 +2,14 @@
 
 Official code generator for Rails projects.
 
+## Installation
+
+To install the gem you need to add it on your Rails application's Gemfile:
+
+```ruby
+gem 'ideo_rails', git: 'https://github.com/ideonetwork/ideo-rails-generator'
+```
+
 ## Basic Commands
 
 ### Initializer
@@ -15,7 +23,7 @@ rails generate ideo_rails:initializer ApplicationName
 Possible options are:
 
 - **dev** : generate project initializations for ideo_rails development purpose.
-- **api** : generate project initializations for an API only application
+- **api** : generate project initializations for an API only application.
 
 ### Sidekiq
 
@@ -25,8 +33,7 @@ to add sidekiq support on your application run:
 rails generate ideo_rails:sidekiq
 ```
 
-This command should copy a yml configuration file to run sidekiq, a schedule file to manage scheduled jobs
-with sidekiq cron and a sidekiq initializer to manage settings.
+This command should copy a configuration file to run sidekiq, a schedule file to manage scheduled jobs with sidekiq cron and a new initializer to manage sidekiq settings.
 
 ## Evnt Commands
 
