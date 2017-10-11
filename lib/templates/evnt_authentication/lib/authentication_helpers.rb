@@ -10,7 +10,7 @@ module AuthenticationHelpers
   def read_token(token)
     body = JWT.decode(token, Rails.application.secrets.secret_key_base, true)[0]
     HashWithIndifferentAccess.new(body)
-  rescue
+  rescue StandardError
     nil
   end
 
@@ -19,7 +19,7 @@ module AuthenticationHelpers
 
   # This function generates and returns a secure authentication token
   # with a payload inside.
-  def generate_authentication_token(unique_key, type = 'user', exp = 24.hours.from_now)
+  def generate_authentication_token(unique_key, type = 'user', exp = 24.hours.from_now.to_i)
     payload = {
       unique_key: unique_key,
       type: "authentication_#{type}",
@@ -65,7 +65,7 @@ module AuthenticationHelpers
 
   # This function generates and returns a secure token used to confirm
   # the email address of a specific user.
-  def generate_confirm_email_token(unique_key, type = 'user', exp = 24.hours.from_now)
+  def generate_confirm_email_token(unique_key, type = 'user', exp = 24.hours.from_now.to_i)
     payload = {
       unique_key: unique_key,
       type: "confirm_email_#{type}",

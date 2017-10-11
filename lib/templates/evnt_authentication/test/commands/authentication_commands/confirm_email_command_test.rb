@@ -3,6 +3,9 @@
 # AuthenticationCommands::ConfirmEmailCommandTest.
 # Created by Ideo SRL on 02-09-2017.
 
+# The confirm email command is used to validate the user
+# with a token submitted to his email address.
+
 require 'test_helper'
 
 module AuthenticationCommands
@@ -16,18 +19,26 @@ module AuthenticationCommands
     ############################################################################
 
     def test_token_exist
-      # negative example1
+      # negative example
       command = command_with_token('')
+      assert !command.completed?
+
+      # negative example
+      command = command_with_token('  ')
       assert !command.completed?
     end
 
-    # The token should be valid and user should need to confirm email.
+    # The token should be valid and user should not has confirmed his email.
     ############################################################################
 
     def test_token_valid
       # negative example
       command = command_with_token('')
       assert !command.completed?
+
+      # positive example (with valid token)
+      command = command_with_token
+      assert command.completed?
     end
 
     def test_user_with_email_confirmed

@@ -26,7 +26,7 @@ class AuthenticationMailer < ApplicationMailer
 
     # send email
     mail(
-      to: user.email,
+      to: @user.email,
       subject: 'Email confirmation completed',
       template_path: 'mailers/authentication'
     )

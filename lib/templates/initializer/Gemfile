@@ -20,14 +20,14 @@ gem 'jbuilder', '>= 2.5'
 gem 'sass-rails', '>= 5.0'
 gem 'uglifier', '>= 1.3.0'
 
+# Database.
+gem 'sqlite3'
+
 # Manage cached data on redis server.
 # gem 'redis'
 # gem 'redis-namespace'
 # gem 'redis-store'
 # gem 'redis-rails'
-
-# Database.
-gem 'sqlite3'
 
 # Manage crypted password for authentication.
 # gem 'bcrypt'
@@ -58,7 +58,7 @@ gem 'sqlite3'
 
 # Test gems
 group :test do
-  # ger random data for seeds
+  # get random data for seeds
   gem 'faker'
 end
 
@@ -82,11 +82,13 @@ end
 
 # Production gems
 group :production do
-  # database
+  # mysql database
   gem 'mysql2'
+  # postgre database
+  # gem 'pg'
   # add CORS support
   gem 'rack-cors'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

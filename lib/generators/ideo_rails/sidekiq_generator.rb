@@ -29,8 +29,9 @@ module IdeoRails
       Welcome to the Sidekiq generator.
       This generator will create all you need to manage your jobs
       with sidekiq.
-      Remember to activate the gems 'sidekiq', 'sidekiq-cron' and 'redis' on your Gemfile and
-      to change the active job queue adapter on the environment settings.
+      Remember to activate the gems 'sidekiq', 'sidekiq-cron'
+      and 'redis' on your Gemfile and to change the active
+      job queue adapter on the environment settings.
       "
     end
 

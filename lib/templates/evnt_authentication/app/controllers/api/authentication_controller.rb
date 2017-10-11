@@ -64,8 +64,9 @@ module Api
     private
 
     def generate_signup_command
-      command_params = params.permit(:name, :surname, :email,
-                                     :password, :password_confirmation)
+      command_params = params.permit(
+        :name, :surname, :email, :password, :password_confirmation
+      )
       AuthenticationCommands::SignupCommand.new(command_params)
     end
 

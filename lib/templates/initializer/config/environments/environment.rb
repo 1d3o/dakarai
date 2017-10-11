@@ -92,7 +92,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = <%= @environment_settings[:action_mailer][:delivery_method] %>
 
   # Set mailer queue for delivery later.
-  config.action_mailer.deliver_later_queue_name = <%= @environment_settings[:action_mailer][:deliver_later_queue_name] %>
+  config.action_mailer.deliver_later_queue_name = '<%= @environment_settings[:action_mailer][:deliver_later_queue_name] %>'
 
   # Set mailer SMTP settings.
   # config.action_mailer.smtp_settings = {

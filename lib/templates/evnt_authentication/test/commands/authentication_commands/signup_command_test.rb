@@ -3,6 +3,9 @@
 # AuthenticationCommands::SignupCommandTest.
 # Created by Ideo SRL on 02-09-2017.
 
+# The signup command is used to register a new
+# user inside the application.
+
 require 'test_helper'
 
 module AuthenticationCommands
@@ -39,7 +42,7 @@ module AuthenticationCommands
     end
 
     # # The email should have a correct format.
-    # ############################################################################
+    # ##########################################################################
 
     def test_email_format
       # negative examples
@@ -59,7 +62,7 @@ module AuthenticationCommands
 
     # # The password should have between six and twenty characters and
     # # should contain one or more numbers.
-    # ############################################################################
+    # ##########################################################################
 
     def test_password_min_length
       # negative example
@@ -92,7 +95,7 @@ module AuthenticationCommands
     end
 
     # # The email should not be used by other users.
-    # ############################################################################
+    # ##########################################################################
 
     def test_email_uniqueness
       command1 = command_with_custom
@@ -103,7 +106,7 @@ module AuthenticationCommands
     end
 
     # # The email should be saved with a downcase format.
-    # ############################################################################
+    # ##########################################################################
 
     def test_email_dowcase
       email = 'test_email_dowcase@MAIL.COM'
@@ -119,7 +122,7 @@ module AuthenticationCommands
 
     # # An event should be saved with the user informations.
     # # The user informations are: name, surname, email, password_digest.
-    # ############################################################################
+    # ##########################################################################
 
     def test_event_saved
       command = command_with_custom
@@ -140,7 +143,7 @@ module AuthenticationCommands
     # # The user table should be updated with the new user informations.
     # # The user password should contain the password informartions for
     # # the user.
-    # ############################################################################
+    # ##########################################################################
 
     def test_user_table_update
       command = command_with_custom
@@ -161,7 +164,7 @@ module AuthenticationCommands
 
     # # The system should deliver an email to the user to request the email
     # # confirmations.
-    # ############################################################################
+    # ##########################################################################
 
     def test_confirm_email_submit
       command = command_with_custom

@@ -1,4 +1,4 @@
-# <%= application_name > Changelog
+# <%= application_name %> Changelog
 
 ## Version 1.0
 

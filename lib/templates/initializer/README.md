@@ -1,12 +1,12 @@
-# <%= application_name >
+# <%= application_name %>
 
 ## Installation
 
 ```console
 
-git clone <%= application_name.underscore >
+git clone <%= application_name.underscore %>
 
-cd <%= application_name.underscore >
+cd <%= application_name.underscore %>
 
 bundle install
 
