@@ -51,7 +51,7 @@ module AuthenticationCommands
     ############################################################################
 
     def command_with_token(token = nil)
-      token = token.nil? ? generate_confirm_email_token(create_user.uuid) : token
+      token ||= generate_confirm_email_token(create_user.uuid)
       AuthenticationCommands::ConfirmEmailCommand.new(token: token)
     end
 

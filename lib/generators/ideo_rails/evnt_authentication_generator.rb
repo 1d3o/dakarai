@@ -118,6 +118,8 @@ module IdeoRails
                 'test/commands/authentication_commands/signup_command_test.rb')
       copy_file('test/commands/authentication_commands/confirm_email_command_test.rb',
                 'test/commands/authentication_commands/confirm_email_command_test.rb')
+      copy_file('test/commands/authentication_commands/login_command_test.rb',
+                'test/commands/authentication_commands/login_command_test.rb')
     end
 
     def manage_db_migrations
