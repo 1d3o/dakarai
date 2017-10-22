@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-# UserHandler.
+# AuthenticationHandler.
 # Created by Ideo SRL on 02-09-2017.
 
-# UserHandler.
-class UserHandler < ApplicationHandler
+# AuthenticationHandler.
+class AuthenticationHandler < ApplicationHandler
 
   on :authentication_signup do
     to_update_queries do

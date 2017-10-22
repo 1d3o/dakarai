@@ -41,7 +41,7 @@ module AuthenticationCommands
       assert !command.completed?
     end
 
-    # # The email should have a correct format.
+    # The email should have a correct format.
     # ##########################################################################
 
     def test_email_format
@@ -60,8 +60,8 @@ module AuthenticationCommands
       assert command.completed?
     end
 
-    # # The password should have between six and twenty characters and
-    # # should contain one or more numbers.
+    # The password should have between six and twenty characters and
+    # should contain one or more numbers.
     # ##########################################################################
 
     def test_password_min_length
@@ -94,7 +94,7 @@ module AuthenticationCommands
       assert command.completed?
     end
 
-    # # The email should not be used by other users.
+    # The email should not be used by other users.
     # ##########################################################################
 
     def test_email_uniqueness
@@ -105,7 +105,7 @@ module AuthenticationCommands
       assert !command2.completed?
     end
 
-    # # The email should be saved with a downcase format.
+    # The email should be saved with a downcase format.
     # ##########################################################################
 
     def test_email_dowcase
@@ -120,8 +120,8 @@ module AuthenticationCommands
       assert !user.nil?
     end
 
-    # # An event should be saved with the user informations.
-    # # The user informations are: name, surname, email, password_digest.
+    # An event should be saved with the user informations.
+    # The user informations are: name, surname, email, password_digest.
     # ##########################################################################
 
     def test_event_saved
@@ -140,9 +140,9 @@ module AuthenticationCommands
       assert command.params[:email], payload[:email]
     end
 
-    # # The user table should be updated with the new user informations.
-    # # The user password should contain the password informartions for
-    # # the user.
+    # The user table should be updated with the new user informations.
+    # The user password should contain the password informartions for
+    # the user.
     # ##########################################################################
 
     def test_user_table_update
@@ -162,8 +162,8 @@ module AuthenticationCommands
       assert !user_password.password_digest.nil?
     end
 
-    # # The system should deliver an email to the user to request the email
-    # # confirmations.
+    # The system should deliver an email to the user to request the email
+    # confirmations.
     # ##########################################################################
 
     def test_confirm_email_submit
