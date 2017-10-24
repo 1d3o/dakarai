@@ -49,7 +49,7 @@ module AuthenticationHelpers
     end
 
     @authentication_token = check_authentication_token(
-      request.headers['Authorization'].present?, type
+      request.headers['Authorization'], type
     )
 
     unless @authentication_token
