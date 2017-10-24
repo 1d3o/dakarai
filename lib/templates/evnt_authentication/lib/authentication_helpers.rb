@@ -44,7 +44,7 @@ module AuthenticationHelpers
   # of the token inside
   def check_authentication_token_request(type = 'user')
     unless request.headers['Authorization'].present?
-      render_unauthorized_request_error
+      render_unauthorized_request_error('Token not found')
       return
     end
 
@@ -53,7 +53,7 @@ module AuthenticationHelpers
     )
 
     unless @authentication_token
-      render_unauthorized_request_error
+      render_unauthorized_request_error('Token not valid')
       return
     end
 

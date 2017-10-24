@@ -13,7 +13,7 @@ module AuthenticationEvents
     attributes_are :uuid, :name, :surname, :email, :password_digest
 
     handlers_are [
-      UserHandler.new
+      AuthenticationHandler.new
     ]
 
     to_write_event do
