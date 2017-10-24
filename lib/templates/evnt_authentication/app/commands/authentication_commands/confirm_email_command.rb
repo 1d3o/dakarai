@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# AuthenticationCommands::LoginCommand.
+# AuthenticationCommands::ConfirmEmailCommand.
 # Created by Ideo SRL on 04-09-2017.
 
 module AuthenticationCommands
