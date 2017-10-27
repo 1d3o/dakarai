@@ -29,9 +29,7 @@ class AuthenticationHandler < ApplicationHandler
   on :authentication_confirm_email do
     to_update_queries do
       # set email confirmed to user
-      event.extras[:_user].update(
-        email_confirmed: true
-      )
+      User.where(uuid: event.payload[:user_uuid]).update_all(email_confirmed: true)
     end
 
     to_manage_event do

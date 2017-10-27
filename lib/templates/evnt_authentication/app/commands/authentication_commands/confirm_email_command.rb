@@ -38,8 +38,7 @@ module AuthenticationCommands
       # initialize event
       AuthenticationEvents::ConfirmEmailEvent.new(
         user_uuid: @user.uuid,
-        email: @user.email,
-        _user: @user
+        email: @user.email
       )
     end
 

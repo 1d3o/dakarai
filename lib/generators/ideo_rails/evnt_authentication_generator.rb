@@ -70,8 +70,8 @@ module IdeoRails
 
     def manage_app_handlers
       # copy handlers
-      copy_file('app/handlers/user_handler.rb',
-                'app/handlers/user_handler.rb')
+      copy_file('app/handlers/authentication_handler.rb',
+                'app/handlers/authentication_handler.rb')
     end
 
     def manage_app_models
