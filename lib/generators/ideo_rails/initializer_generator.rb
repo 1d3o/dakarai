@@ -57,7 +57,6 @@ module IdeoRails
     def manage_gemfile
       # copy Gemfile
       copy_file('Gemfile', 'Gemfile')
-
       # add local gem if env is development
       gem 'ideo_rails', path: '../' if options['dev']
     end
@@ -75,18 +74,30 @@ module IdeoRails
 
     def manage_config_environments
       # copy environment test
+      manage_config_environments_test
+
+      # copy environment development
+      manage_config_environments_development
+
+      # copy environment production
+      manage_config_environments_production
+    end
+
+    def manage_config_environments_test
       @environment_settings = DEFAULT_ENVIRONMENT_TEST_SETTINGS
       @environment_settings[:api_only] = true if options['api']
       template('config/environments/environment.rb',
                'config/environments/test.rb')
+    end
 
-      # copy environment development
+    def manage_config_environments_development
       @environment_settings = DEFAULT_ENVIRONMENT_DEVELOPMENT_SETTINGS
       @environment_settings[:api_only] = true if options['api']
       template('config/environments/environment.rb',
                'config/environments/development.rb')
+    end
 
-      # copy environment production
+    def manage_config_environments_production
       @environment_settings = DEFAULT_ENVIRONMENT_PRODUCTION_SETTINGS
       @environment_settings[:api_only] = true if options['api']
       template('config/environments/environment.rb',
@@ -103,10 +114,8 @@ module IdeoRails
       # copy lib helpers
       copy_file('lib/api_controllers_helpers.rb',
                 'lib/api_controllers_helpers.rb')
-      copy_file('lib/models_helpers.rb',
-                'lib/models_helpers.rb')
-      copy_file('lib/tests_helpers.rb',
-                'lib/tests_helpers.rb')
+      copy_file('lib/models_helpers.rb', 'lib/models_helpers.rb')
+      copy_file('lib/tests_helpers.rb', 'lib/tests_helpers.rb')
     end
 
     def manage_app_views
@@ -122,11 +131,10 @@ module IdeoRails
     end
 
     def manage_app_assets
+      return if options['api']
       # copy application js
-      unless options['api']
-        copy_file('app/assets/javascripts/application.js',
-                  'app/assets/javascripts/application.js')
-      end
+      copy_file('app/assets/javascripts/application.js',
+                'app/assets/javascripts/application.js')
     end
 
     def manage_app_controllers

@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 # ApiControllersHelpers.
-# Created by Ideo SRL on 02-09-2017.
-
-# ApiControllersHelpers.
 module ApiControllersHelpers
 
   # This function render a normal success response with a custom payload.

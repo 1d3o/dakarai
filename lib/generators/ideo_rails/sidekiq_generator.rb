@@ -19,7 +19,7 @@ module IdeoRails
       write_messages
 
       # copy templates
-      manage_config 
+      manage_all
     end
 
     private
@@ -35,10 +35,8 @@ module IdeoRails
       "
     end
 
-    def manage_config
-      copy_file('config/sidekiq.yml', 'config/sidekiq.yml')
-      copy_file('config/sidekiq_schedule.yml', 'config/sidekiq_schedule.yml')
-      copy_file('config/initializers/sidekiq.rb', 'config/initializers/sidekiq.rb')
+    def manage_all
+      directory 'config', 'config'
     end
 
   end

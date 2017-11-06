@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-# CreateEvents.
-class CreateEvents < ActiveRecord::Migration[5.1]
+# CreateEvnt.
+class CreateEvnt < ActiveRecord::Migration[5.1]
 
   def change
-    create_table :events do |t|
+    create_table :evnts do |t|
       t.string :name
       t.text :payload
 

@@ -1,14 +1,11 @@
 # frozen_string_literal: true
 
-# Event.
-# Created by Ideo SRL on 15-09-2017.
-
-# The Event model is used to save all application events.
+# The Evnt model is used to save all application events.
 # This model should be ADD only and should not suport
 # the updates and destroies operations.
 
-# Event.
-class Event < ApplicationRecord
+# Evnt.
+class Evnt < ApplicationRecord
 
   # Serializations:
 

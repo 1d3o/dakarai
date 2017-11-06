@@ -13,19 +13,13 @@ module IdeoRails
 
     source_root File.expand_path('../../../templates/evnt_initializer', __FILE__)
 
-    class_option 'no-migrations', type: :boolean, default: false
-
     desc 'This function initialize your Rails project to support Evnt.'
     def create_evnt_initializer
       # write messages to user
       write_messages
 
       # copy templates
-      manage_app_commands
-      manage_app_events
-      manage_app_handlers
-      manage_app_models
-      manage_db_migrations
+      manage_all
 
       # update application codes
       update_config_application
@@ -42,36 +36,10 @@ module IdeoRails
       "
     end
 
-    def manage_app_commands
+    def manage_all
       # copy commands
-      copy_file('app/commands/application_command.rb',
-                'app/commands/application_command.rb')
-    end
-
-    def manage_app_events
-      # copy events
-      copy_file('app/events/application_event.rb',
-                'app/events/application_event.rb')
-    end
-
-    def manage_app_handlers
-      # copy handlers
-      copy_file('app/handlers/application_handler.rb',
-                'app/handlers/application_handler.rb')
-    end
-
-    def manage_app_models
-      # copy models
-      copy_file('app/models/event.rb',
-                'app/models/event.rb')
-    end
-
-    def manage_db_migrations
-      # copy migrations
-      unless options['no-migrations']
-        copy_file('db/migrate/20170914231322_create_events.rb',
-                  'db/migrate/20170914231322_create_events.rb')
-      end
+      directory 'app', 'app'
+      directory 'db', 'db'
     end
 
     def update_config_application

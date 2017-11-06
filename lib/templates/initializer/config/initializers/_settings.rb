@@ -2,6 +2,8 @@
 
 # Initializer for system settings file.
 
+APPLICATION_VERSION = '1.0'
+
 # Update default classes settings:
 
 # language

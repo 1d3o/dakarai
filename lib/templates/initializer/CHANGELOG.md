@@ -2,4 +2,14 @@
 
 ## Version 1.0
 
-First official release.
+### Important informations:
+
+- Needs a **db:migrate** to initialize the database for the environment.
+
+### New features:
+
+/
+
+### Bug fixed:
+
+/

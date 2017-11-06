@@ -27,7 +27,7 @@ Possible options are:
 
 ### Sidekiq
 
-to add sidekiq support on your application run:
+To add Sidekiq gem support on your application run:
 
 ```console
 rails generate ideo_rails:sidekiq
@@ -35,32 +35,10 @@ rails generate ideo_rails:sidekiq
 
 This command should copy a configuration file to run sidekiq, a schedule file to manage scheduled jobs with sidekiq cron and a new initializer to manage sidekiq settings.
 
-## Evnt Commands
-
-Commads used with Evnt gem (https://github.com/ideonetwork/ruby-evnt)
-
-### Initializer
+### Evnt
 
 To initialize your project to support Evnt gem run:
 
 ```console
-rails generate ideo_rails:evnt_initializer
+rails generate ideo_rails:evnt
 ```
-
-Possible options are:
-
-- **no-migrations** : avoid the generation of Event migration.
-
-### Authentication
-
-To add all you need to manage users authentication run:
-
-```console
-rails generate ideo_rails:evnt_authentication
-```
-
-Possible options are:
-
-- **no-migrations** : avoid the generation of User and UserPassword migrations.
-
-This command should create controllers, models, commands, events, handlers and mailers used to manage the users authentication. It also creates two migration to create a **users** and **user_passwords** tables.
