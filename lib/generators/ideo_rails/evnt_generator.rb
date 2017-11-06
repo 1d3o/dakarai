@@ -6,15 +6,15 @@ require 'ideo_rails/helpers'
 
 module IdeoRails
 
-  # EvntInitializerGenerator.
-  class EvntInitializerGenerator < Rails::Generators::Base
+  # EvntGenerator.
+  class EvntGenerator < Rails::Generators::Base
 
     include IdeoRails::Helpers
 
-    source_root File.expand_path('../../../templates/evnt_initializer', __FILE__)
+    source_root File.expand_path('../../../templates/evnt', __FILE__)
 
     desc 'This function initialize your Rails project to support Evnt.'
-    def create_evnt_initializer
+    def create_evnt
       # write messages to user
       write_messages
 
@@ -28,8 +28,8 @@ module IdeoRails
     private
 
     def write_messages
-      print_presentation 'Evnt initializer generator', "
-      Welcome to the Evnt initializer generator.
+      print_presentation 'Evnt generator', "
+      Welcome to the Evnt generator.
       This generator will create all you need to structure your
       code with the Evnt gem.
       Remember to activate the gems 'evnt' on your Gemfile.
