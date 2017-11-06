@@ -40,6 +40,7 @@ module IdeoRails
       # copy commands
       directory 'app', 'app'
       directory 'db', 'db'
+      directory 'test', 'test'
     end
 
     def update_config_application
