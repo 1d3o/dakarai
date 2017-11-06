@@ -33,8 +33,6 @@ To add Sidekiq gem support on your application run:
 rails generate ideo_rails:sidekiq
 ```
 
-This command should copy a configuration file to run sidekiq, a schedule file to manage scheduled jobs with sidekiq cron and a new initializer to manage sidekiq settings.
-
 ### Evnt
 
 To initialize your project to support Evnt gem run:
