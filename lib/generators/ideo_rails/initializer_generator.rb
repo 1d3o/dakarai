@@ -116,6 +116,7 @@ module IdeoRails
                 'lib/api_controllers_helpers.rb')
       copy_file('lib/models_helpers.rb', 'lib/models_helpers.rb')
       copy_file('lib/tests_helpers.rb', 'lib/tests_helpers.rb')
+      copy_file('lib/utils.rb', 'lib/utils.rb')
     end
 
     def manage_app_views
