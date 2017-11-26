@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-# The Evnt model is used to save all application events.
+# The EvntEvent model is used to save all application events.
 # This model should be ADD only and should not suport
 # the updates and destroies operations.
 
-# Evnt.
-class Evnt < ApplicationRecord
+# EvntEvent.
+class EvntEvent < ApplicationRecord
 
   # Serializations:
 
