@@ -3,7 +3,7 @@
 class ApplicationEvent < Evnt::Event
 
   to_write_event do
-    Evnt.create(name: name, payload: payload)
+    EvntEvent.create(name: name, payload: payload)
   end
 
 end
