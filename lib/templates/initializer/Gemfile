@@ -42,9 +42,6 @@ gem 'sqlite3'
 # gem 'sidekiq'
 # gem 'sidekiq-cron'
 
-# Add Ideo SRL company helpers.
-# gem 'ideo_rails', git: 'https://github.com/ideonetwork/ideo-rails'
-
 # Enforce system architecture with events.
 # gem 'evnt', git: 'https://github.com/ideonetwork/ruby-evnt'
 
@@ -56,8 +53,11 @@ gem 'sqlite3'
 # blog module:
 # gem 'lato_blog', git: 'https://github.com/ideonetwork/lato-blog'
 
+# Add Ideo SRL company helpers.
+# gem 'ideo_rails', git: 'https://github.com/ideonetwork/ideo-rails'
+
 # Test gems
-group :test do
+group :test, :development do
   # get random data for seeds
   gem 'faker'
 end
@@ -78,6 +78,8 @@ group :development do
   # check code quality
   gem 'rubocop'
   gem 'rubycritic'
+  # test security
+  gem 'brakeman'
 end
 
 # Production gems
