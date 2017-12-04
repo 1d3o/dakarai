@@ -42,6 +42,9 @@ gem 'sqlite3'
 # gem 'sidekiq'
 # gem 'sidekiq-cron'
 
+# Security Rack middleware.
+# gem 'rack-attack'
+
 # Enforce system architecture with events.
 # gem 'evnt', git: 'https://github.com/ideonetwork/ruby-evnt'
 
