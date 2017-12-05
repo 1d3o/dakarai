@@ -22,7 +22,7 @@ module IdeoRails
         dump_schema_after_migration: false
       },
       active_job: {
-        queue_adapter: ':inline'
+        queue_adapter: ':test'
       },
       action_dispatch: {
         show_exceptions: false
