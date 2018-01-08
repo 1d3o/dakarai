@@ -38,7 +38,7 @@ Rails.application.configure do
   # Active Support is a collection of utility classes and standard library
   # extensions that were found useful for the Rails framework.
 
-  # Print deprecation notices to the Rails logger. [:log, :notify, :stderr]
+  # Print deprecation notices to the Rails logger. [:log, :notify, :stderr, :silence]
   config.active_support.deprecation = <%= @environment_settings[:active_support][:deprecation] %>
 
   # ActiveRecord settings:

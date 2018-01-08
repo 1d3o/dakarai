@@ -98,7 +98,7 @@ module IdeoRails
         enabled: true
       }
     }
-  
+
     DEFAULT_ENVIRONMENT_PRODUCTION_SETTINGS = {
       log_level: ':error',
       consider_all_requests_local: false,
