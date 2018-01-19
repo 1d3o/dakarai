@@ -28,6 +28,7 @@ module IdeoRails
       # copy templates
       manage_gemfile
       manage_rubocop
+      manage_deploy
       manage_md
       manage_config_environments
       manage_config_initializers
@@ -64,6 +65,11 @@ module IdeoRails
     def manage_rubocop
       # copy rubocop settings
       copy_file('.rubocop.yml', '.rubocop.yml')
+    end
+
+    def manage_deploy
+      # copy deploy file
+      copy_file('deploy.sh', 'deploy.sh')
     end
 
     def manage_md
