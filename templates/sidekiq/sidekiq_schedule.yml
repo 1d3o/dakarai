@@ -1,0 +1,4 @@
+# example_job:
+#   cron: "* * * * *"
+#   class: "MyCustomJob"
+#   queue: default

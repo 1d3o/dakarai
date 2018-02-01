@@ -1,0 +1,97 @@
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
+
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end
+
+ruby '2.5.0'
+
+# Main server.
+gem 'puma', '~> 3.7'
+
+# Rails.
+gem 'rails', '~> 5.1.4'
+
+# Styles gems.
+gem 'jbuilder', '>= 2.5'
+gem 'sass-rails', '>= 5.0'
+gem 'uglifier', '>= 2.7.0'
+
+# Database.
+gem 'sqlite3'
+
+# Manage crypted password for authentication.
+# gem 'bcrypt'
+
+# Generate Json Web Token.
+# gem 'jwt'
+
+# Upload files and media.
+# gem 'paperclip'
+
+# Manage jobs.
+# gem 'sidekiq'
+# gem 'sidekiq-cron'
+
+# Manage cached data on redis server.
+# gem 'redis'
+# gem 'redis-namespace'
+# gem 'redis-store'
+# gem 'redis-rails'
+
+# Security Rack middleware.
+# gem 'rack-attack'
+
+# Enforce system architecture with events.
+# gem 'evnt', git: 'https://github.com/ideonetwork/ruby-evnt'
+
+# Create admin panel with Lato.
+# core module:
+# gem 'lato_core', git: 'https://github.com/ideonetwork/lato-core'
+# media module:
+# gem 'lato_media', git: 'https://github.com/ideonetwork/lato-media'
+# blog module:
+# gem 'lato_blog', git: 'https://github.com/ideonetwork/lato-blog'
+
+# Add Ideo SRL company helpers.
+# gem 'ideo_rails', git: 'https://github.com/ideonetwork/ideo-rails'
+
+# Test gems
+group :test, :development do
+  # get random data for seeds
+  gem 'faker'
+end
+
+# Development gems
+group :development do
+  # develop
+  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+  # get pretty errors
+  gem 'better_errors'
+  # work better with console
+  gem 'colorize'
+  gem 'table_print'
+  # get database documentation
+  gem 'rails-erd'
+  # check code quality
+  gem 'rubocop'
+  gem 'rubycritic'
+  # test security
+  gem 'brakeman'
+end
+
+# Production gems
+group :production do
+  # mysql database
+  gem 'mysql2'
+  # add CORS support
+  gem 'rack-cors'
+end
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
