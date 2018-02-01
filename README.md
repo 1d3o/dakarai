@@ -16,7 +16,7 @@ Legacy version
 gem 'ideo_rails'
 ```
 
-## Basic Commands
+## Commands
 
 ### Initializer
 
