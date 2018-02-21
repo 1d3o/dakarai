@@ -2,7 +2,7 @@
 
 ## Installation
 
-```console
+```shell
 
 git clone application
 
@@ -14,4 +14,12 @@ rails db:migrate
 
 rails s
 
+```
+
+## Configuration
+
+### Add precommit on git hooks
+
+```shell
+cp precommit.sh .git/hooks/pre-commit
 ```
