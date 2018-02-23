@@ -2,7 +2,7 @@
 
 # Please consider to copy this file on .git/hooks/pre-commit file and 
 # give to the file the correct permissions.
-# cp precommit.sh ./git/hooks/pre-commit
+# cp bin/pre-commit ./git/hooks/pre-commit
 # chmod +x .git/hooks/post-commit
 
 # Colors helpers

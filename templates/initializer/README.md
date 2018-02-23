@@ -3,7 +3,6 @@
 ## Installation
 
 ```shell
-
 git clone application
 
 cd application
@@ -13,7 +12,6 @@ bundle install
 rails db:migrate
 
 rails s
-
 ```
 
 ## Configuration
@@ -21,5 +19,12 @@ rails s
 ### Add precommit on git hooks
 
 ```shell
-cp precommit.sh .git/hooks/pre-commit
+cp bin/pre-commit ./git/hooks/pre-commit
+chmod +x .git/hooks/post-commit
+```
+
+## Deploy
+
+```shell
+sh bin/deploy TAG_NAME
 ```
