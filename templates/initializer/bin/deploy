@@ -59,7 +59,7 @@ else
   SCRIPT="
   source .bash_profile &&
   cd versions/current &&
-  sh ./deploy.sh $TAG remote
+  sh bin/deploy $TAG remote
   "
 
   echo "${C_YELLOW}Please, insert the production machine password...${C_NC}"
