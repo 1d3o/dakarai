@@ -25,7 +25,7 @@ if [ -z "$1" ]; then
 fi
 
 # Start deploy process
-if [ $ENV = "remote" ]; then
+if [[ $ENV == "remote" ]]; then
 
   echo "\n${C_GREEN}Starting deploy script on the remote machine! :)${C_NC} \n"
 
