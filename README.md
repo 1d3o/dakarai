@@ -8,7 +8,7 @@ To install the gem you need to add it on your Rails application's Gemfile:
 
 Latest version
 ```ruby
-gem 'dakarai', git: 'https://github.com/ideonetwork/dakari'
+gem 'dakarai', git: 'https://github.com/ideonetwork/dakarai'
 ```
 
 Legacy version
