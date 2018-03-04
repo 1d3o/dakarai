@@ -96,10 +96,10 @@ Rails.application.configure do
 
   # Set mailer SMTP settings.
   # config.action_mailer.smtp_settings = {
-  #   user_name: 'noreply@ideonetwork.it',
+  #   user_name: 'noreply@domain.it',
   #   password: 'write_here_the_password',
-  #   domain: 'ideonetwork.it',
-  #   address: 'smtp.ideonetwork.it',
+  #   domain: 'domain.it',
+  #   address: 'smtp.domain.it',
   #   port: 25,
   #   authentication: :plain,
   #   enable_starttls_auto: false

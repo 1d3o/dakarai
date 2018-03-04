@@ -1,6 +1,6 @@
-# Ideo Rails generator
+# Dakarai
 
-Official code generator for Rails projects.
+Code generator for new Rails projects.
 
 ## Installation
 
@@ -8,12 +8,12 @@ To install the gem you need to add it on your Rails application's Gemfile:
 
 Latest version
 ```ruby
-gem 'ideo_rails', git: 'https://github.com/ideonetwork/ideo-rails-generator'
+gem 'dakarai', git: 'https://github.com/ideonetwork/dakari'
 ```
 
 Legacy version
 ```ruby
-gem 'ideo_rails'
+gem 'dakarai'
 ```
 
 ## Commands
@@ -23,7 +23,7 @@ gem 'ideo_rails'
 To initialize your project with initial files run:
 
 ```console
-rails generate ideo_rails:initializer
+rails generate dakarai:initializer
 ```
 
 This command should create all initial files for general purpose projects.
@@ -33,7 +33,7 @@ This command should create all initial files for general purpose projects.
 To add Sidekiq gem support on your application run:
 
 ```console
-rails generate ideo_rails:sidekiq
+rails generate dakarai:sidekiq
 ```
 
 This command should add all files used to manage sidekiq and sidekiq cron (with redis).

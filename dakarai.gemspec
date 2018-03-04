@@ -3,20 +3,19 @@
 
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'ideo_rails/version'
+require 'dakarai/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'ideo_rails'
-  spec.version       = IdeoRails::VERSION
+  spec.name          = 'dakarai'
+  spec.version       = Dakarai::VERSION
   spec.authors       = ['Ideonetwork']
   spec.email         = ['dev@ideonetwork.it']
   spec.homepage      = 'http://ideonetwork.it/'
-  spec.summary       = 'Ideo SRL Rails project initializer'
-  spec.description   = 'Ideo SRL Rails project initializer'
+  spec.summary       = 'Rails projectsinitializer'
+  spec.description   = 'Rails projects initializer'
   spec.license       = 'MIT'
   spec.require_paths = ['lib', 'README.md']
 
   # dev depenencies
   spec.add_development_dependency 'bundler'
-
 end

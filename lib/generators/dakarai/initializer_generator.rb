@@ -2,7 +2,7 @@
 
 require 'rails/generators/base'
 
-module IdeoRails
+module Dakarai
 
   # InitializerGenerator.
   class InitializerGenerator < Rails::Generators::Base

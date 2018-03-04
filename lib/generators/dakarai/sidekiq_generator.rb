@@ -2,7 +2,7 @@
 
 require 'rails/generators/base'
 
-module IdeoRails
+module Dakarai
 
   # SidekiqGenerator.
   class SidekiqGenerator < Rails::Generators::Base

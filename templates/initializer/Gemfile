@@ -56,8 +56,8 @@ gem 'sqlite3'
 # blog module:
 # gem 'lato_blog', git: 'https://github.com/ideonetwork/lato-blog'
 
-# Add Ideo SRL company helpers.
-# gem 'ideo_rails', git: 'https://github.com/ideonetwork/ideo-rails'
+# Add generators helpers.
+# gem 'dakarai', git: 'https://github.com/ideonetwork/dakarai'
 
 # Test gems
 group :test, :development do
