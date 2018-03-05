@@ -23,7 +23,3 @@ VALID_IMAGE = %r{/\Aimage\/.*\z/}
 VALID_PASSWORD = /^(?=.*[a-zA-Z])(?=.*[0-9]).{6,20}$/
 
 VALID_USERNAME = /\A[a-z0-9_]{4,16}\z/
-
-# Set global settings:
-
-CUSTOM_SETTINGS = {}.freeze
