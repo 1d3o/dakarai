@@ -1,6 +1,10 @@
 # Dakarai
 
+[![Gem Version](https://badge.fury.io/rb/evnt.svg)](https://badge.fury.io/rb/dakarai)
+[![Inline docs](http://inch-ci.org/github/ideonetwork/dakarai.svg?branch=master)](http://inch-ci.org/github/ideonetwork/dakarai)
+
 Code generator for new Rails projects.
+This gem helps developers to start new Rails projects with a better starting boilerplate and popular gem integrations.
 
 ## Installation
 
