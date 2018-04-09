@@ -31,7 +31,7 @@ Rails.application.configure do
 
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem. {development}
-  # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # ActiveSupport settings:
   ############################################################################
@@ -60,7 +60,7 @@ Rails.application.configure do
 
   # ActionDispatch settings:
   ############################################################################
-  
+
   # Raise exceptions instead of rendering exception templates. [true, false]
   config.action_dispatch.show_exceptions = true
 
@@ -105,6 +105,12 @@ Rails.application.configure do
   #   enable_starttls_auto: false
   # }
 
+  # Active storage settings:
+  ############################################################################
+
+  # Store uploaded files on the local file system (see config/storage.yml for options)
+  config.active_storage.service = :local
+
   # Assets settings:
   ############################################################################
 
@@ -128,5 +134,10 @@ Rails.application.configure do
 
   # Enable possibility to serve files on public folder. [true, false]
   config.public_file_server.enabled = true
+
+  # Enable cache lifetime (use with action_controller.perform_caching true).
+  # config.public_file_server.headers = {
+  #   'Cache-Control' => "public, max-age=#{2.days.to_i}"
+  # }
 
 end

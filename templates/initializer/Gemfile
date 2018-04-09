@@ -1,27 +1,26 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-
-git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
-end
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.0'
 
 # Main server.
-gem 'puma', '~> 3.7'
+gem 'puma', '~> 3.11'
 
 # Rails.
-gem 'rails', '~> 5.1.5'
+gem 'rails', '~> 5.2.0'
 
 # Styles gems.
-gem 'jbuilder', '>= 2.5'
-gem 'sass-rails', '>= 5.0'
-gem 'uglifier', '>= 2.7.0'
+gem 'jbuilder', '~> 2.5'
+gem 'sass-rails', '~> 5.0'
+gem 'uglifier', '>= 1.3.0'
 
 # Database.
 gem 'sqlite3'
+
+# Reduces boot times through caching; required in config/boot.rb.
+gem 'bootsnap', '>= 1.1.0', require: false
 
 # Manage crypted password for authentication.
 # gem 'bcrypt'
@@ -38,9 +37,6 @@ gem 'sqlite3'
 
 # Manage cached data on redis server.
 # gem 'redis'
-# gem 'redis-namespace'
-# gem 'redis-store'
-# gem 'redis-rails'
 
 # Security Rack middleware.
 # gem 'rack-attack'
@@ -59,13 +55,21 @@ gem 'sqlite3'
 # Add generators helpers.
 # gem 'dakarai', git: 'https://github.com/ideonetwork/dakarai'
 
-# Test gems
 group :test, :development do
+  # call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # get random data for seeds
   gem 'faker'
 end
 
-# Development gems
+group :test do
+  # adds support for Capybara system testing and selenium driver
+  gem 'capybara', '>= 2.15', '< 4.0'
+  gem 'selenium-webdriver'
+  # easy installation and use of chromedriver to run system tests with Chrome
+  gem 'chromedriver-helper'
+end
+
 group :development do
   # develop
   gem 'listen', '>= 3.0.5', '< 3.2'
@@ -76,7 +80,7 @@ group :development do
   # work better with console
   gem 'colorize'
   gem 'table_print'
-  # get database documentation
+  # get database documentation (needs graphviz)
   gem 'rails-erd'
   # check code quality
   gem 'rubocop'
@@ -85,7 +89,6 @@ group :development do
   gem 'brakeman'
 end
 
-# Production gems
 group :production do
   # mysql database
   gem 'mysql2'
