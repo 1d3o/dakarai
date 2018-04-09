@@ -46,7 +46,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'evnt', git: 'https://github.com/ideonetwork/ruby-evnt'
 
 # Add generators helpers.
-# gem 'dakarai', git: 'https://github.com/ideonetwork/dakarai'
+gem 'dakarai', git: 'https://github.com/ideonetwork/dakarai'
 
 group :test, :development do
   # call 'byebug' anywhere in the code to stop execution and get a debugger console
