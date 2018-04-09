@@ -21,11 +21,17 @@ gem 'dakarai'
 
 ## Commands
 
+Before any commands we recommend you to initialize your Rails app with Rails 5.2.* and the webpack option activated
+
+```shell
+rails new my_app --webpack --skip-sprockets
+```
+
 ### Initializer
 
 To initialize your project with initial files run:
 
-```console
+```shell
 rails generate dakarai:initializer
 ```
 
@@ -35,7 +41,7 @@ This command should create all initial files for general purpose projects.
 
 To add Sidekiq gem support on your application run:
 
-```console
+```shell
 rails generate dakarai:sidekiq
 ```
 

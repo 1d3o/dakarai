@@ -16,7 +16,7 @@ rails s
 
 ## Configuration
 
-### Add precommit on git hooks
+### Add precommit on git hooks to run tests before commit
 
 ```shell
 cp bin/pre-commit ./git/hooks/pre-commit
