@@ -60,7 +60,7 @@ Rails.application.configure do
 
   # ActionDispatch settings:
   ############################################################################
-  
+
   # Raise exceptions instead of rendering exception templates. [true, false]
   config.action_dispatch.show_exceptions = false
 
@@ -110,24 +110,6 @@ Rails.application.configure do
 
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
-
-  # Assets settings:
-  ############################################################################
-
-  # Compress javascript. [false, :uglifier]
-  config.assets.js_compressor = false
-
-  # Compress css. [false, :sass]
-  config.assets.css_compressor = false
-
-  # Compile assets if precompile assets are missed. [true, false]
-  config.assets.compile = true
-
-  # Active debug for assets. [true, false]
-  config.assets.debug = true
-
-  # Suppress logger output for asset requests. [false, true]
-  config.assets.quiet = false
 
   # Public file server settings:
   ############################################################################

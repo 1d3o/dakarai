@@ -111,24 +111,6 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
 
-  # Assets settings:
-  ############################################################################
-
-  # Compress javascript. [false, :uglifier]
-  config.assets.js_compressor = :uglifier
-
-  # Compress css. [false, :sass]
-  config.assets.css_compressor = :sass
-
-  # Compile assets if precompile assets are missed. [true, false]
-  config.assets.compile = false
-
-  # Active debug for assets. [true, false]
-  config.assets.debug = false
-
-  # Suppress logger output for asset requests. [false, true]
-  config.assets.quiet = true
-
   # Public file server settings:
   ############################################################################
 
