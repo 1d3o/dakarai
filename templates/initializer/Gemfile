@@ -43,7 +43,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'rack-attack'
 
 # Enforce system architecture with events.
-# gem 'evnt', git: 'https://github.com/ideonetwork/ruby-evnt'
+# gem 'evnt', git: 'https://github.com/ideonetwork/evnt'
 
 # Add generators helpers.
 gem 'dakarai', git: 'https://github.com/ideonetwork/dakarai'
