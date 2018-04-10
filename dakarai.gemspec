@@ -14,7 +14,8 @@ Gem::Specification.new do |spec|
   spec.summary       = 'Rails projectsinitializer'
   spec.description   = 'Rails projects initializer'
   spec.license       = 'MIT'
-  spec.require_paths = ['lib', 'README.md']
+  spec.files         = Dir['MIT-LICENSE', 'README.md', 'lib/**/*']
+  spec.require_paths = ['lib']
 
   # dev depenencies
   spec.add_development_dependency 'bundler'
