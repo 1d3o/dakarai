@@ -61,3 +61,4 @@ This command should:
 - Create a package.json inside the root of the engine.
 - Create a webpack.config.js inside the root of the engine.
 - Create a task to copy the engine assets on vendor/modules directory of the main application.
+- Update the dummy application to permits the development of the engine with webpacker.
