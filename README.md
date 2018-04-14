@@ -46,3 +46,18 @@ rails generate dakarai:sidekiq
 ```
 
 This command should add all files used to manage sidekiq and sidekiq cron (with redis).
+
+### Engine webpacker (IN-PROGRESS)
+
+This genertor should be used inside a Rails engine. It is used to permit the usage of the engine assets with webpacker.
+Note that it is a temporary option used while an official support is not developed by the Rails team.
+
+```shell
+rails generate dakarai:engine_webpacker
+```
+
+This command should:
+
+- Create a package.json inside the root of the engine.
+- Create a webpack.config.js inside the root of the engine.
+- Create a task to copy the engine assets on vendor/modules directory on main application.
