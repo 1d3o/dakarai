@@ -63,12 +63,6 @@ This command should:
 - Create a task to copy the engine assets on vendor/modules directory of the main application.
 - Update the dummy application to permits the development of the engine with webpacker.
 
-After the execution of the task you need to:
-
-- Run ```bundle install``` to install dependencies inside the engine.
-- Run ```yarn install``` to install webpack dependencies inside the engine (used to compile engine source code for Sprockets).
-- Run ```rails webpacker:install``` inside the test/dummy application to add webpacker support during the development of the engine (do not override the file app/javascript/packs/application.js).
-
 Gem installation on main application (with webpacker):
 
 - Add the gem on your gemfile.
