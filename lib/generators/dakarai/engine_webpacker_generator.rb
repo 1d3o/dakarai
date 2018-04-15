@@ -22,14 +22,32 @@ module Dakarai
         'lib/tasks/assets_management_tasks.rake'
       )
       template(
-        'engine_webpacker/test/dummy/package.json',
-        'test/dummy/package.json'
+        'engine_webpacker/test/dummy/config/initializers/webpacker.rb',
+        'test/dummy/config/initializers/webpacker.rb'
       )
 
       copy_file 'engine_webpacker/.babelrc', '.babelrc'
+      copy_file 'engine_webpacker/Gemfile', 'Gemfile'
+      copy_file 'engine_webpacker/.gitignore', '.gitignore'
       copy_file(
         'engine_webpacker/app/javascript/engine/index.js',
         "app/javascript/#{@engine_name}/index.js"
+      )
+      copy_file(
+        'engine_webpacker/app/javascript/engine/scripts/main.js',
+        "app/javascript/#{@engine_name}/scripts/main.js"
+      )
+      copy_file(
+        'engine_webpacker/app/javascript/engine/style/main.scss',
+        "app/javascript/#{@engine_name}/style/main.scss"
+      )
+      copy_file(
+        'engine_webpacker/app/views/layouts/engine/application.html.erb',
+        "app/views/layouts/#{@engine_name}/application.html.erb"
+      )
+      copy_file(
+        'engine_webpacker/test/dummy/app/javascript/packs/application.js',
+        'test/dummy/app/javascript/packs/application.js'
       )
     end
 

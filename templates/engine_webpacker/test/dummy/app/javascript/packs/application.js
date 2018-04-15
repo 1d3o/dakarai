@@ -1,0 +1,2 @@
+// Import engine assets.
+import '../../../../../'

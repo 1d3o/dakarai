@@ -1,7 +1,0 @@
-{
-  "name": "dummy",
-  "private": true,
-  "dependencies": {
-    "<%= @engine_name %>": "file:../../"
-  }
-}
