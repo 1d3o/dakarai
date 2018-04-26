@@ -6,6 +6,8 @@
 Code generator for new Rails projects.
 This gem helps developers to start new Rails projects with a better starting boilerplate and popular gem integrations.
 
+The full documentation of the gem can be found here: https://ideonetwork.github.io/dakarai
+
 ## Installation
 
 To install the gem you need to add it on your Rails application's Gemfile:
