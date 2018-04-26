@@ -14,9 +14,7 @@ To initialize your project with starting boilerplate files run:
 rails generate dakarai:initializer
 ```
 
-This command should create all initial files for general purpose projects.
-
-It overrides some Rails files (classes, configuration files ecc.) and adds these files:
+This command should create all initial files for general purpose projects. It overrides some Rails files (classes, configuration files ecc.) and adds these files:
 
 - ```bin/deploy```: A deploy script that can be used to deploy an application to a custom server.
 - ```config/initializer/_settings.rb```: A file that should be used to set custom application settings (application version, constants ecc.).
