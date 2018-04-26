@@ -29,9 +29,6 @@ gem 'jbuilder', '~> 2.5'
 # Generate Json Web Token.
 # gem 'jwt'
 
-# Upload files and media.
-# gem 'paperclip'
-
 # Manage jobs.
 # gem 'sidekiq'
 # gem 'sidekiq-cron'
