@@ -14,14 +14,25 @@ To initialize your project with starting boilerplate files run:
 rails generate dakarai:initializer
 ```
 
-This command should create all initial files for general purpose projects with a better structure and a better files documentation.
+This command should create all initial files for general purpose projects.
+
+It overrides some Rails files (classes, configuration files ecc.) and adds these files:
+
+- ```bin/deploy```: A deploy script that can be used to deploy an application to a custom server.
+- ```config/initializer/_settings.rb```: A file that should be used to set custom application settings (application version, constants ecc.).
+- ```.rubocop.yml```: A rubocop custom configuration.
 
 ## Sidekiq
 
+Sidekiq is a nice gem used to manage and run background jobs on production environments.
 To add Sidekiq gem support on your application run:
 
 ```shell
 rails generate dakarai:sidekiq
 ```
 
-This command should add all files used to manage sidekiq and sidekiq cron (with redis). Sidekiq is a nice production option used to manage and run background jobs.
+This command should add all files used to manage sidekiq and sidekiq cron (with redis):
+
+- ```config/sidekiq.yml```: Sidekiq default configuration.
+- ```config/sidekiq_schedule.yml```: List of jobs that should be scheduled with sidekiq cron.
+- ```config/initializers/sidekiq.rb```: Configuration of sidekiq client, server and cron.

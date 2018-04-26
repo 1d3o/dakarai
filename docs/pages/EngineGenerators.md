@@ -2,9 +2,9 @@
 
 ## Webpacker
 
-This genertor should be used inside a Rails engine to permit the usage of the engine assets with webpacker.
+This genertor should be used inside a Rails engine to permit the compilation of the engine assets with webpacker.
 
-NOTE: this is a temporary option used because an official support is not developed by the Rails team.
+NOTE: this is a temporary option created because an official support is not developed by the Rails team.
 
 ```shell
 rails generate dakarai:engine_webpacker

@@ -8,3 +8,6 @@ Layout/EmptyLinesAroundClassBody:
 
 Layout/EmptyLinesAroundModuleBody:
   EnforcedStyle: empty_lines
+
+Metrics/LineLength:
+  Enabled: false
