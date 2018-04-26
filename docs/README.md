@@ -20,18 +20,6 @@ Legacy version
 gem 'dakarai'
 ```
 
-## Development
+## Credits
 
-### Docsify documentation
-
-Install docsify as global node dependency
-
-```shell
-npm install -g docsify
-```
-
-See documentation on local machine
-
-```shell
-docsify serve ./docs
-```
+Powered by [Ideo Creative Network](http://ideonetwork.it/)
