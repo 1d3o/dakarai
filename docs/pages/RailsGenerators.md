@@ -22,9 +22,7 @@ This command should create all initial files for general purpose projects. It ov
 
 ## Services
 
-The services pattern is a nice way to organize the business logic of a classic MVC application using Procedural Programming.
-
-A nice description of this type of pattern can be found [here](https://medium.com/root-engineering/separating-data-and-code-in-rails-architecture-3a031e17706b).
+The services pattern is a nice way to organize the business logic of a classic MVC application using Procedural Programming. A nice description of this type of pattern can be found [here](https://medium.com/root-engineering/separating-data-and-code-in-rails-architecture-3a031e17706b).
 To add the services pattern on your application run:
 
 ```shell
