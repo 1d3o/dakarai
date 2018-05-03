@@ -10,7 +10,7 @@ module Dakarai
     source_root File.expand_path('../../../../templates', __FILE__)
 
     def create_sidekiq
-      directory './sidekiq', './config'
+      directory './sidekiq', './'
     end
 
   end

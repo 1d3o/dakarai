@@ -10,7 +10,7 @@ module Dakarai
     source_root File.expand_path('../../../../templates', __FILE__)
 
     def create_services
-      directory './services', './services'
+      directory './services', './'
       application "config.autoload_paths += %W[\#{Rails.root}/app/services]"
     end
 
