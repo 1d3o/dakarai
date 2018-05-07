@@ -1,5 +1,21 @@
 # Engine generators
 
+## Configuration
+
+This generator should be used inside a Rails engine to add the configuration block support. The configuration block is a way to define configuration options to a Ruby library. To add the configuration block support run:
+
+```shell
+rails generate dakarai:engine_configuration
+```
+
+This command should create a ```lib/engine_name/configuration.rb``` file inside the engine source code that should be updated to add default options.
+
+After the execution of the command you must require the created file inside the main engine file:
+
+```ruby
+require "engine_name/configuration"
+```
+
 ## Webpacker
 
 This genertor should be used inside a Rails engine to permit the compilation of the engine assets with webpacker.

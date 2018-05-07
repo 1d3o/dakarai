@@ -57,7 +57,6 @@ module Dakarai
         'engine_webpacker/test/dummy/app/javascript/packs/application.js',
         'test/dummy/app/javascript/packs/application.js'
       )
-
     end
 
   end
