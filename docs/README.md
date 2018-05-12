@@ -22,4 +22,4 @@ gem 'dakarai'
 
 ## Credits
 
-Powered by [ídeo Srl](http://ideonetwork.it/)
+Powered by [ídeo](http://ideonetwork.it/)
