@@ -28,6 +28,9 @@ Rails.application.configure do
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
   config.serve_static_assets = false
+  
+  # Use master key for security.
+  config.require_master_key = true
 
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem. {development}
