@@ -75,6 +75,9 @@ Rails.application.configure do
 
   # Enable caching of controllers response. [true, false]
   config.action_controller.perform_caching = true
+  
+  # Set controller url host.
+  config.action_controller.default_url_options = { host: 'http://localhost:3000' }
 
   # ActionView settings:
   ############################################################################
