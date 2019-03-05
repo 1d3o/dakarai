@@ -9,7 +9,7 @@ ruby '2.5.0'
 gem 'puma', '~> 3.11'
 
 # Rails.
-gem 'rails', '~> 5.2.0'
+gem 'rails', '~> 5.2.2'
 
 # Styles gems.
 gem 'webpacker'
