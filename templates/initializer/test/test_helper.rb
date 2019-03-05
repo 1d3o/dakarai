@@ -7,6 +7,9 @@ module ActiveSupport
 
   # TestCase.
   class TestCase
+    
+    # Uncomment this line to load fixtures on tests.
+    # fixtures :all
 
     protected
     
