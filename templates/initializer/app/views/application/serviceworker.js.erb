@@ -1,0 +1,63 @@
+<%
+  js_list = sources_from_pack_manifest(['application'], type: :javascript)
+  css_list = sources_from_pack_manifest(['application'], type: :stylesheet)
+%>
+var URL = '<%=j root_url %>'
+var CACHE_NAME = '<%= "#{js_list.first}#{css_list.first}".bytes.to_a.join('') %>'
+
+function onInstall(event) {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(function prefill(cache) {
+      return cache.addAll([
+        '/offline.html',
+        '/404.html',
+        '/500.html',
+        '/422.html'
+      ])
+    })
+  )
+}
+
+function onActivate(event) {
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      console.log('[ServiceWorker] Service Worker installed!')
+
+      return Promise.all(
+        cacheNames.filter(function(cacheName) {
+          // Return true if you want to remove this cache,
+          // but remember that caches are shared across
+          // the whole origin
+           return cacheName !== CACHE_NAME
+        }).map(function(cacheName) {
+          return caches.delete(cacheName)
+        })
+      )
+    })
+  )
+}
+
+function onFetch(event) {
+  event.respondWith(
+    caches.open(CACHE_NAME).then(function(cache) {
+      return cache.match(event.request).then(function (response) {
+        if (response) {
+          return response
+        }
+        return fetch(event.request).then(function(response) {
+          if (event.request.url.startsWith(URL + 'packs')) {
+            cache.put(event.request, response.clone())
+          }
+          return response
+        }).catch(function (error) {
+          console.log('[ServiceWorker] Error while fetching data!')
+          return caches.match('/offline.html')
+        })
+      })
+    })
+  )
+}
+
+self.addEventListener('install', onInstall)
+self.addEventListener('activate', onActivate)
+self.addEventListener('fetch', onFetch)

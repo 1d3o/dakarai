@@ -72,7 +72,7 @@ Rails.application.configure do
 
   # Enable caching of controllers response. [true, false]
   config.action_controller.perform_caching = false
-  
+
   # Set controller url host.
   config.action_controller.default_url_options = { host: 'http://localhost:3000' }
 
@@ -107,7 +107,7 @@ Rails.application.configure do
   #   authentication: :plain,
   #   enable_starttls_auto: false
   # }
-  
+
   # Set mailer url host.
   config.action_mailer.default_url_options = { host: 'http://localhost:3000' }
 

@@ -5,11 +5,36 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
+  # Action used to render a custom sitemap.
+  def sitemap
+    render 'application/index.xml.builder', formats: [:xml]
+  end
+
+  # Action used to render an updated service worker.
+  def serviceworker
+    render_js 'service_worker.js'
+  end
+
   protected
 
   # Custom logger for errors.
   def controller_errors_logger
     @controller_errors_logger ||= Logger.new("#{Rails.root}/log/custom/controller_errors.log")
+  end
+
+  # Custom js sender for remote requests.
+  def render_js(file_path)
+    respond_to { |f| f.js { render action: file_path, layout: false } }
+  end
+
+  # Custom html sender for remote requests.
+  def render_html(file_path)
+    respond_to { |f| f.html { render action: file_path, layout: false } }
+  end
+
+  # Custom json sender for remote requests.
+  def render_json(json_data)
+    render json: json_data
   end
 
 end

@@ -104,7 +104,7 @@ Rails.application.configure do
   #   authentication: :plain,
   #   enable_starttls_auto: false
   # }
-  
+
   # Set mailer url host.
   config.action_mailer.default_url_options = { host: 'http://localhost:3000' }
 

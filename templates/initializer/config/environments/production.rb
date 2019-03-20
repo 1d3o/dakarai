@@ -28,7 +28,7 @@ Rails.application.configure do
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
   config.serve_static_assets = false
-  
+
   # Use master key for security.
   config.require_master_key = true
 
@@ -110,7 +110,7 @@ Rails.application.configure do
   #   authentication: :plain,
   #   enable_starttls_auto: false
   # }
-  
+
   # Set mailer url host.
   config.action_mailer.default_url_options = { host: 'http://localhost:3000' }
 
