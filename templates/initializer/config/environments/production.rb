@@ -8,6 +8,19 @@ Rails.application.configure do
   # Set logs level.
   config.log_level = :error
 
+  # Prepend all log lines with the following tags.
+  config.log_tags = [:request_id]
+
+  # Use default logging formatter so that PID and timestamp are not suppressed.
+  config.log_formatter = ::Logger::Formatter.new
+
+  # Use a different logger for distributed setups.
+  if ENV['RAILS_LOG_TO_STDOUT'].present?
+    logger           = ActiveSupport::Logger.new(STDOUT)
+    logger.formatter = config.log_formatter
+    config.logger    = ActiveSupport::TaggedLogging.new(logger)
+  end
+
   # Show full error reports on requests. [true, false]
   config.consider_all_requests_local = false
 
@@ -75,7 +88,7 @@ Rails.application.configure do
 
   # Enable caching of controllers response. [true, false]
   config.action_controller.perform_caching = true
-  
+
   # Set controller url host.
   config.action_controller.default_url_options = { host: 'http://localhost:3000' }
 
