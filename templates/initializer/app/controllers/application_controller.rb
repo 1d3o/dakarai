@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
+  skip_before_action :verify_authenticity_token, only: :serviceworker
+
   # Action used to render a custom sitemap.
   def sitemap
     render 'application/index.xml.builder', formats: [:xml]
@@ -12,7 +14,7 @@ class ApplicationController < ActionController::Base
 
   # Action used to render an updated service worker.
   def serviceworker
-    render_js 'service_worker.js'
+    render_js 'serviceworker.js'
   end
 
   protected
