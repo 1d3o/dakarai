@@ -3,13 +3,13 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.0'
+ruby '2.6.0'
 
 # Main server.
 gem 'puma', '~> 3.11'
 
 # Rails.
-gem 'rails', '~> 5.2.2'
+gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 
 # Styles gems.
 gem 'webpacker'
@@ -54,7 +54,7 @@ end
 
 group :test do
   # adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15', '< 4.0'
+  gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
@@ -65,13 +65,9 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'web-console', '>= 3.3.0'
   # get pretty errors
   gem 'better_errors'
-  # work better with console
-  gem 'colorize'
-  gem 'table_print'
-  # get database documentation (needs graphviz)
-  gem 'rails-erd'
   # check code quality
   gem 'rubocop'
   gem 'rubycritic'
@@ -80,8 +76,6 @@ group :development do
 end
 
 group :production do
-  # mysql database
-  gem 'mysql2'
   # add CORS support
   gem 'rack-cors'
 end
