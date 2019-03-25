@@ -1,9 +1,9 @@
 <%
-  js_list = sources_from_pack_manifest(['application'], type: :javascript)
-  css_list = sources_from_pack_manifest(['application'], type: :stylesheet)
+  js = javascript_pack_tag('application').split('"')[1]
+  css = stylesheet_pack_tag('application').split('"')[5]
 %>
 var URL = '<%=j root_url %>'
-var CACHE_NAME = '<%= "#{js_list.first}#{css_list.first}".bytes.to_a.join('') %>'
+var CACHE_NAME = '<%= "#{js}#{css}".bytes.to_a.join('') %>'
 
 function onInstall(event) {
   event.waitUntil(
