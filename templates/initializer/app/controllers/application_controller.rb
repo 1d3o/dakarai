@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   # Action used to render a custom sitemap.
   def sitemap
-    render 'application/index.xml.builder', formats: [:xml]
+    render 'application/sitemap.xml.builder', formats: [:xml]
   end
 
   # Action used to render an updated service worker.
