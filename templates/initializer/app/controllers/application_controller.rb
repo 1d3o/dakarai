@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   # Action used to render an updated service worker.
+  # NOTE: Active extract css on webpacker.yml settings to make serviceworker works fine :)
   def serviceworker
     render_js 'serviceworker.js'
   end
