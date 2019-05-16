@@ -20,6 +20,6 @@ VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 
 VALID_IMAGE = %r{/\Aimage\/.*\z/}
 
-VALID_PASSWORD = /^(?=.*[a-zA-Z])(?=.*[0-9]).{6,20}$/
+VALID_PASSWORD = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,}$/
 
 VALID_USERNAME = /\A[a-z0-9_]{4,16}\z/
