@@ -69,7 +69,7 @@ group :development do
   # get pretty errors
   gem 'better_errors'
   # check code quality
-  gem 'rubocop'
+  gem 'rubocop-rails'
   gem 'rubycritic'
   # test security
   gem 'brakeman'
