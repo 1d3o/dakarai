@@ -29,7 +29,7 @@ gem 'dakarai'
 Install docsify as global node dependency
 
 ```shell
-npm install -g docsify
+npm install -g docsify-cli
 ```
 
 See documentation on local machine
