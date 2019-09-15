@@ -1,9 +1,15 @@
 # Rails generators
 
-Before any commands we recommend you to initialize your Rails app with Rails 5.2.* and the webpack option activated.
+Before any commands we recommend you to initialize your Rails app with Rails 6.0 and the webpack option activated.
 
 ```shell
 rails new APPNAME --skip-sprockets
+```
+
+After the generation of the project you should ad the gem to your Gemfile:
+
+```ruby
+gem 'dakarai', git: 'https://github.com/ideonetwork/dakarai'
 ```
 
 ## Initializer
