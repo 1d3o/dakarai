@@ -6,7 +6,7 @@ Rails.application.configure do
   ############################################################################
 
   # Set logs level.
-  config.log_level = :error
+  config.log_level = :debug
 
   # Prepend all log lines with the following tags.
   config.log_tags = [:request_id]
@@ -21,22 +21,22 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
-  # Show full error reports on requests. [true, false]
+  # Show full error reports on requests.
   config.consider_all_requests_local = false
 
   # Set exception type format. [:default, :api]
   config.debug_exception_response_format = :default
 
-  # Cache classes code. [true, false]
+  # Cache classes code.
   config.cache_classes = true
 
-  # Eager load code on boot. [true, false]
+  # Eager load code on boot.
   config.eager_load = true
 
   # Set cache store used for caching datas. [:redis_store]
   config.cache_store = :memory_store
 
-  # Use server only for api. [true, false]
+  # Use server only for api.
   config.api_only = false
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
@@ -65,7 +65,7 @@ Rails.application.configure do
   # Raise an error on page load if there are pending migrations. [:page_load]
   config.active_record.migration_error = :page_load
 
-  # Update schema after migrations. [true, false]
+  # Update schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
   # ActiveJob settings:
@@ -76,17 +76,17 @@ Rails.application.configure do
 
   # ActionDispatch settings:
   ############################################################################
-  
-  # Raise exceptions instead of rendering exception templates. [true, false]
+
+  # Raise exceptions instead of rendering exception templates.
   config.action_dispatch.show_exceptions = true
 
   # ActionController settings:
   ############################################################################
 
-  # Disable request forgery protection. [true, false]
+  # Disable request forgery protection.
   config.action_controller.allow_forgery_protection = true
 
-  # Enable caching of controllers response. [true, false]
+  # Enable caching of controllers response.
   config.action_controller.perform_caching = true
 
   # Set controller url host.
@@ -95,16 +95,16 @@ Rails.application.configure do
   # ActionView settings:
   ############################################################################
 
-  # Raises error for missing translations. [true, false]
+  # Raises error for missing translations.
   config.action_view.raise_on_missing_translations = false
 
   # ActionMailer settings:
   ############################################################################
 
-  # Enable caching of mailers response. [true, false]
-  config.action_mailer.perform_caching = true
+  # Enable caching of mailers response.
+  config.action_mailer.perform_caching = false
 
-  # Raise errors for delivery problems [true, false]
+  # Raise errors for delivery problems
   config.action_mailer.raise_delivery_errors = false
 
   # Set mailer method. [:smtp, :test]
@@ -136,8 +136,8 @@ Rails.application.configure do
   # Public file server settings:
   ############################################################################
 
-  # Enable possibility to serve files on public folder. [true, false]
-  config.public_file_server.enabled = true
+  # Enable possibility to serve files on public folder.
+  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Enable cache lifetime (use with action_controller.perform_caching true).
   config.public_file_server.headers = {

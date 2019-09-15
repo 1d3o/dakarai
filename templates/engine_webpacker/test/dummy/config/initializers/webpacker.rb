@@ -1,1 +1,0 @@
-Webpacker::Compiler.watched_paths << "#{<%= @engine_class %>::Engine.root}/app/javascript/**/*"

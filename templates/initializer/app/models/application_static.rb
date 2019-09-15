@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 # ApplicationStatic.
-# NOTE: Static models superclass.
+# Static models superclass. Static models should be used to manage data saved as json string
+# on custom places.
 class ApplicationStatic
 
   attr_accessor :data
