@@ -24,3 +24,41 @@ This command should create all initial files for general purpose projects. It ov
 
 - ```config/initializer/_settings.rb```: A file that should be used to set custom application settings (application version, constants ecc.).
 - ```.rubocop.yml```: A rubocop custom configuration.
+
+## Dockerize
+
+To use Docker in your Rails app run: 
+
+```shell
+rails generate dakarai:dockerize
+```
+
+The docker integration offers:
+
+- A rails image with the main application.
+- A webpacker image to compile assets with webpack dev server.
+- A mysql image for the databases.
+- A phpmyadmin image to manage the databases.
+
+### Configurations
+
+Wordpress host: http://localhost:3000
+Phpmyadmin host: http://localhost:3001
+Database root password: root
+
+### Commands
+
+#### Start project
+
+```shell
+docker-compose up
+```
+
+#### Use Rails command line
+
+```shell
+docker-compose run rails rails COMMAND
+
+# example
+docker-compose run rails rails db:migrate
+```

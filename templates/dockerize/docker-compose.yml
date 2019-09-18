@@ -1,0 +1,54 @@
+version: '3.7'
+
+services:
+  mysql:
+    build:
+      context: .
+      dockerfile: ./docker/mysql.dockerfile
+    ports: [3306:3306]
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: rails
+      MYSQL_USER: rails
+      MYSQL_PASSWORD: rails
+  phpmyadmin:
+    depends_on: [mysql]
+    build:
+      context: .
+      dockerfile: ./docker/phpmyadmin.dockerfile
+    ports: [3001:80]
+    restart: always
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: root
+  webpacker:
+    build:
+      context: .
+      dockerfile: ./docker/webpacker.dockerfile
+    ports: [3035:3035]
+    command: ./bin/webpack-dev-server
+    volumes: [.:/app]
+    restart: always
+    environment:
+      RAILS_ENV: development
+      NODE_ENV: development
+      WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
+  rails:
+    depends_on: [mysql]
+    build:
+      context: .
+      dockerfile: ./docker/rails.dockerfile
+    ports: [3000:3000, 443:443]
+    command: rails server -b 0.0.0.0
+    volumes: [.:/app]
+    restart: always
+    environment:
+      RAILS_ENV: development
+      NODE_ENV: development
+      WEBPACKER_DEV_SERVER_HOST: webpacker
+      RAILS_DB_DATABASE: rails
+      RAILS_DB_USERNAME: rails
+      RAILS_DB_PASSWORD: rails
+      RAILS_DB_HOST: mysql
+      RAILS_DB_PORT: 3306
