@@ -42,8 +42,8 @@ The docker integration offers:
 
 ### Configurations
 
-Wordpress host: http://localhost:3000
-Phpmyadmin host: http://localhost:3001
+Wordpress host: http://localhost:3000<br>
+Phpmyadmin host: http://localhost:3001<br>
 Database root password: root
 
 ### Commands
