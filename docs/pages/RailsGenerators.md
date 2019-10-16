@@ -24,6 +24,15 @@ This command should create all initial files for general purpose projects. It ov
 
 - ```config/initializer/_settings.rb```: A file that should be used to set custom application settings (application version, constants ecc.).
 - ```.rubocop.yml```: A rubocop custom configuration.
+- ```Procfile.dev```: A Procfile for foreman to start Rails and Webpack dev server with **foreman start -f Procfile.dev**
+
+## Bootstrap
+
+To install Bootstrap inside your application run:
+
+```shell
+rails generate dakarai:bootstrap
+```
 
 ## Dockerize
 
