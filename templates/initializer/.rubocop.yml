@@ -23,3 +23,6 @@ Metrics/CyclomaticComplexity:
 
 Metrics/MethodLength:
   Max: 50
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
