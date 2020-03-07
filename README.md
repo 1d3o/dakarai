@@ -8,7 +8,7 @@ This gem helps developers to start new Rails projects with a better starting boi
 
 The current versione is updated to work with Rails 6.0.
 
-The full documentation of the gem can be found here: https://ideonetwork.github.io/dakarai
+The full documentation of the gem can be found here: <a href="https://github.com/ideonetwork/dakarai/wiki">https://github.com/ideonetwork/dakarai/wiki</a>
 
 ## Installation
 
@@ -22,20 +22,4 @@ gem 'dakarai', git: 'https://github.com/ideonetwork/dakarai'
 Legacy version
 ```ruby
 gem 'dakarai'
-```
-
-## Development
-
-### Docsify documentation
-
-Install docsify as global node dependency
-
-```shell
-npm install -g docsify-cli
-```
-
-See documentation on local machine
-
-```shell
-docsify serve ./docs
 ```
