@@ -9,8 +9,20 @@ Layout/EmptyLinesAroundClassBody:
 Layout/EmptyLinesAroundModuleBody:
   EnforcedStyle: empty_lines
 
-Metrics/LineLength:
+Layout/LineLength:
+  Enabled: false
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
   Enabled: false
 
 Metrics/MethodLength:
-  Max: 30
+  Max: 50
+
+Style/FrozenStringLiteralComment:
+  Enabled: false

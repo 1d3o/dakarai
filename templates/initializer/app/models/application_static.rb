@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # ApplicationStatic.
 # Static models superclass. Static models should be used to manage data saved as json string
 # on custom places.

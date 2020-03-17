@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Usage:
 # Require the module inside your test: require 'test_helper'
 

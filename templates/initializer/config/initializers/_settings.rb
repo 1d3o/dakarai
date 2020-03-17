@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Initializer for system settings file.
 
 APPLICATION_VERSION = '1.0'
