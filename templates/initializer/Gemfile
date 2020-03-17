@@ -29,6 +29,8 @@ gem 'foreman'
 # gem 'rack-attack'
 # Enforce system architecture with events. Read more: https://github.com/ideonetwork/evnt
 # gem 'evnt', git: 'https://github.com/ideonetwork/evnt'
+# Create custom admin panels. Read more: https://github.com/ideonetwork/matilda-core
+# gem 'matilda_core', git: 'https://github.com/ideonetwork/matilda-core'
 # Add generators helpers. Read more: https://github.com/ideonetwork/dakarai
 gem 'dakarai', git: 'https://github.com/ideonetwork/dakarai'
 
