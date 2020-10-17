@@ -18,11 +18,6 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  # Custom logger for errors.
-  def controller_errors_logger
-    @controller_errors_logger ||= Logger.new("#{Rails.root}/log/custom/controller_errors.log")
-  end
-
   # Custom js sender for remote requests.
   def render_js(file_path)
     respond_to { |f| f.js { render action: file_path, layout: false } }
