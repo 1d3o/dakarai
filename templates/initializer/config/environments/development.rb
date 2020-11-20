@@ -1,4 +1,7 @@
 Rails.application.configure do
+  
+  # Permit connections from all hosts.
+  config.hosts.clear
 
   # Rails settings:
   ############################################################################
