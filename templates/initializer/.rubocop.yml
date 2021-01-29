@@ -1,7 +1,7 @@
 # Configuration file for rubocop.
 
 AllCops:
-  TargetRubyVersion: 2.6.0
+  TargetRubyVersion: 2.7.2
 
 Layout/EmptyLinesAroundClassBody:
   EnforcedStyle: empty_lines
