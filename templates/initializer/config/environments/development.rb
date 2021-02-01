@@ -77,9 +77,6 @@ Rails.application.configure do
   # Enable caching of controllers response.
   config.action_controller.perform_caching = false
 
-  # Set controller url host.
-  config.action_controller.default_url_options = { host: 'http://localhost:3000' }
-
   # ActionView settings:
   ############################################################################
 
@@ -111,9 +108,6 @@ Rails.application.configure do
   #   authentication: :plain,
   #   enable_starttls_auto: false
   # }
-
-  # Set mailer url host.
-  config.action_mailer.default_url_options = { host: 'http://localhost:3000' }
 
   # Active storage settings:
   ############################################################################
