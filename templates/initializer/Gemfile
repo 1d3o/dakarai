@@ -27,6 +27,8 @@ gem 'foreman'
 # gem 'jwt'
 # Security Rack middleware. Read more: https://github.com/kickstarter/rack-attack
 # gem 'rack-attack'
+# Manage Cors policy. Read more: https://github.com/cyu/rack-cors
+# gem 'rack-cors'
 # Enforce system architecture with events. Read more: https://github.com/ideonetwork/evnt
 # gem 'evnt', git: 'https://github.com/ideonetwork/evnt'
 # Create custom admin panels. Read more: https://github.com/ideonetwork/matilda-core
