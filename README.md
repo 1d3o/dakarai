@@ -1,6 +1,5 @@
 # Dakarai
 
-[![Gem Version](https://badge.fury.io/rb/dakarai.svg)](https://badge.fury.io/rb/dakarai)
 [![Inline docs](http://inch-ci.org/github/ideonetwork/dakarai.svg?branch=master)](http://inch-ci.org/github/ideonetwork/dakarai)
 
 Code generator for new Rails projects.
