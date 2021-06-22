@@ -34,7 +34,7 @@ Rails.application.configure do
   # Eager load code on boot.
   config.eager_load = true
 
-  # Set cache store used for caching datas. [:redis_store]
+  # Set cache store used for caching datas. [:redis_cache_store]
   config.cache_store = :memory_store
 
   # Use server only for api.
