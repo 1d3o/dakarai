@@ -19,6 +19,7 @@ APPLICATION_PORT = Rails.env.production? ? nil : 3000
 APPLICATION_PROTOCOL = Rails.env.production? ? 'https' : 'http'
 APPLICATION_URL = "#{APPLICATION_PROTOCOL}://#{APPLICATION_HOST}#{APPLICATION_PORT ? ":#{APPLICATION_PORT}" : ''}".freeze
 Rails.application.routes.default_url_options = { host: APPLICATION_URL }
+Rails.application.config.action_mailer.default_url_options = { host: APPLICATION_URL }
 Rails.application.config.hosts << APPLICATION_HOST
 
 # Set global regex values:
