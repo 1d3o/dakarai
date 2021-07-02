@@ -9,9 +9,6 @@ Rails.application.configure do
   # Set logs level.
   config.log_level = :debug
 
-  # Prepend all log lines with the following tags.
-  config.log_tags = [:request_id]
-
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
@@ -98,6 +95,9 @@ Rails.application.configure do
 
   # ActionMailer settings:
   ############################################################################
+
+  # Set host for mailers.     
+  config.action_mailer.default_url_options = { host: 'http://localhost:3000' }
 
   # Enable caching of mailers response.
   config.action_mailer.perform_caching = false

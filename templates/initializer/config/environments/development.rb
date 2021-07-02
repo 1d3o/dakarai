@@ -83,6 +83,9 @@ Rails.application.configure do
   # ActionMailer settings:
   ############################################################################
 
+  # Set host for mailers.     
+  config.action_mailer.default_url_options = { host: 'http://localhost:3000' }
+
   # Enable caching of mailers response.
   config.action_mailer.perform_caching = false
 
