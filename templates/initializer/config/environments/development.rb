@@ -74,12 +74,6 @@ Rails.application.configure do
   # Enable caching of controllers response.
   config.action_controller.perform_caching = false
 
-  # ActionView settings:
-  ############################################################################
-
-  # Raises error for missing translations.
-  config.action_view.raise_on_missing_translations = true
-
   # ActionMailer settings:
   ############################################################################
 
