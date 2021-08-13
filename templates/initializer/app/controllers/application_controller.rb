@@ -13,24 +13,7 @@ class ApplicationController < ActionController::Base
   # Action used to render an updated service worker.
   # NOTE: Active extract css on webpacker.yml settings to make serviceworker works fine :)
   def serviceworker
-    render_js 'serviceworker.js'
-  end
-
-  protected
-
-  # Custom js sender for remote requests.
-  def render_js(file_path)
-    respond_to { |f| f.js { render action: file_path, layout: false } }
-  end
-
-  # Custom html sender for remote requests.
-  def render_html(file_path)
-    respond_to { |f| f.html { render action: file_path, layout: false } }
-  end
-
-  # Custom json sender for remote requests.
-  def render_json(json_data)
-    render json: json_data
+    respond_to { |f| f.js { render action: 'serviceworker.js', layout: false } }
   end
 
 end

@@ -8,6 +8,5 @@
 /tmp/
 /testing/
 
-.DS_Store
-
 *.gem
+.DS_Store

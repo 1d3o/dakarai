@@ -1,4 +1,3 @@
-// Uncomment this code if you use service workers.
 // if (navigator.serviceWorker) {
 //   navigator.serviceWorker.register('/serviceworker.js', { scope: './' })
 //     .then(function(reg) {
