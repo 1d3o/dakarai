@@ -22,15 +22,3 @@ rails s
 rails db:migrate # create the database
 rails db:seed # create fake data on database
 ```
-
-## Files structure
-
-All Frontend code can be found on **app/javascript** folder.
-
-## Data structure
-
-All data structure rappresentations can be found on **app/models** folder.
-
-## Other informations
-
-...

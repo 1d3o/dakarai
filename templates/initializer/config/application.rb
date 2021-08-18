@@ -24,5 +24,17 @@ module MatildaCoreExample
     config.i18n.available_locales = [:en, :it]
     config.i18n.default_locale = :en
 
+    # Action mailer Settings:
+
+    # config.action_mailer.smtp_settings = {
+    #   user_name: 'noreply@domain.it',
+    #   password: 'write_here_the_password',
+    #   domain: 'domain.it',
+    #   address: 'smtp.domain.it',
+    #   port: 25,
+    #   authentication: :plain,
+    #   enable_starttls_auto: false
+    # }
+
   end
 end
